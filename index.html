@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Legado Barber Club</title>
-  <meta name="description" content="Legado Barber Club: barbería clásica donde cada corte deja huella.">
+  <meta name="description" content="Legado Barber Club: te escuchamos, analizamos qué te favorece y te asesoramos antes de cortar.">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -21,79 +21,84 @@
     </nav>
   </header>
 
-  <!-- COPYWRITING: mensaje principal -->
+  <!-- 1. COPYWRITING + 2. MICROCOPY -->
   <section id="inicio" class="hero">
     <img src="img/logo.jpg" alt="Legado Barber Club" class="hero-logo">
-    <h1>Cada corte deja huella.</h1>
-    <p>Barbería clásica · Hecha para hombres con carácter</p>
-    <a href="#reservar" class="btn">Reserva tu silla</a>
-    <a href="#servicios" class="btn btn-ghost">Ver servicios</a>
+    <h1>No todos los cortes favorecen a todos por igual.</h1>
+    <p class="hero-texto">Tu tipo de rostro, tu cabello y hasta el tiempo que dedicás a peinarte importan. Por eso, antes de cortar, te escuchamos, analizamos qué te puede favorecer y te asesoramos.</p>
+    <a href="#reservar" class="btn">Encontrá tu corte</a>
   </section>
 
-  <!-- STORYTELLING: conflicto y transformación -->
-  <section id="historia" class="seccion">
-    <h2>Una historia que empieza en la silla</h2>
+  <!-- 5. CONFLICTO y 6. TRANSFORMACIÓN -->
+  <section id="cambio" class="seccion">
+    <h2>De la duda a la confianza</h2>
     <div class="historia">
       <article>
-        <span class="paso">01 · El conflicto</span>
-        <h3>Te miras al espejo y no te reconoces.</h3>
-        <p>Una entrevista, una boda o simplemente un lunes. Sabes que la imagen que ves no cuenta quién eres, y las prisas no ayudan.</p>
+        <span class="paso">El conflicto</span>
+        <h3>Querés un cambio, pero te da miedo equivocarte.</h3>
+        <p>El cliente quiere un cambio de imagen, pero teme elegir un corte que no le favorezca o que sea difícil de mantener en su día a día.</p>
       </article>
       <article>
-        <span class="paso">02 · El encuentro</span>
-        <h3>Aquí no tienes prisa. Te escuchamos.</h3>
-        <p>Toalla caliente, buena conversación y un barbero que entiende lo que quieres antes de tocar la tijera.</p>
-      </article>
-      <article>
-        <span class="paso">03 · La transformación</span>
-        <h3>Sales con otra actitud.</h3>
-        <p>No solo cambia tu look: cambia cómo caminas, cómo hablas y cómo te ven. Eso es dejar un legado.</p>
+        <span class="paso">La transformación</span>
+        <h3>Salís con un corte que es para vos.</h3>
+        <p>Gracias a la escucha y al asesoramiento personalizado, el cliente pasa de la incertidumbre a la confianza. Encuentra un corte que se adapta a sus características y aprende a mantenerlo en casa.</p>
       </article>
     </div>
   </section>
 
-  <section id="servicios" class="seccion gris">
+  <!-- 4. STORYTELLING -->
+  <section id="historia" class="seccion oscura">
+    <h2>La historia de Diego</h2>
+    <div class="relato">
+      <p>Diego llegó a Legado Barber Club con la foto de un corte que le gustaba, pero con dudas sobre si le quedaría bien. Otras veces había pedido un estilo que después no podía mantener en casa.</p>
+      <p>Antes de empezar, el barbero le preguntó qué buscaba y cuánto tiempo dedicaba a peinarse. Juntos adaptaron la referencia a su rostro, su cabello y su rutina. Al terminar, le enseñó cómo peinarlo en pocos pasos.</p>
+      <p>A la mañana siguiente, Diego pudo acomodarse el cabello por su cuenta y salir sintiéndose seguro con su nuevo estilo.</p>
+    </div>
+    <a href="#reservar" class="btn">Encontrá tu corte</a>
+  </section>
+
+  <section id="servicios" class="seccion">
     <h2>Servicios</h2>
     <div class="tarjetas">
+      <article><h3>Corte con asesoramiento</h3><p>Analizamos tu rostro, tu cabello y tu rutina, y decidimos juntos.</p></article>
       <article><h3>Corte clásico</h3><p>Tijera o máquina, a tu medida y con acabado impecable.</p></article>
       <article><h3>Barba y perfilado</h3><p>Toalla caliente, navaja y aceites para una barba que impone.</p></article>
-      <article><h3>Afeitado tradicional</h3><p>El ritual de siempre: espuma, navaja y calma.</p></article>
       <article><h3>Corte + Barba</h3><p>El combo completo para salir listo para todo.</p></article>
     </div>
-    <a href="#reservar" class="btn btn-negro">Quiero este look</a>
   </section>
 
-  <section id="precios" class="seccion oscura">
+  <section id="precios" class="seccion gris">
     <h2>Precios</h2>
     <ul class="precios">
+      <li><span>Corte con asesoramiento</span><span>15 €</span></li>
       <li><span>Corte clásico</span><span>12 €</span></li>
       <li><span>Barba y perfilado</span><span>8 €</span></li>
-      <li><span>Afeitado tradicional</span><span>10 €</span></li>
       <li><span>Corte + Barba</span><span>18 €</span></li>
     </ul>
   </section>
 
-  <!-- MICROCOPY + UX WRITING: formulario de reserva -->
+  <!-- 3. UX WRITING: ayuda en la reserva -->
   <section id="reservar" class="seccion">
-    <h2>Reserva tu silla</h2>
-    <p class="intro">Elige tu servicio y tu hora. Te confirmamos en minutos.</p>
+    <h2>Encontrá tu corte</h2>
+    <p class="intro">Elegí tu servicio y el día que te queda bien. Te confirmamos por mensaje.</p>
     <form id="form-reserva" novalidate>
-      <label>¿Cómo te llamas?
+      <label>¿Cómo te llamás?
         <input type="text" name="nombre" placeholder="Tu nombre" required>
       </label>
       <label>¿A qué número te escribimos?
         <input type="tel" name="telefono" placeholder="600 000 000" required>
       </label>
-      <label>¿Qué te vas a hacer?
+      <label>¿Qué servicio querés?
         <select name="servicio" required>
-          <option value="">Elige un servicio</option>
+          <option value="">Elegí un servicio</option>
+          <option>Corte con asesoramiento</option>
           <option>Corte clásico</option>
           <option>Barba y perfilado</option>
-          <option>Afeitado tradicional</option>
           <option>Corte + Barba</option>
         </select>
       </label>
-      <label>¿Qué día te viene bien?
+      <p class="ayuda">¿Todavía no sabés qué corte elegir? Seleccioná «Corte con asesoramiento» al reservar y lo decidimos juntos cuando vengás.</p>
+      <label>¿Qué día te queda bien?
         <input type="date" name="fecha" required>
       </label>
       <button type="submit" class="btn btn-negro">Confirmar mi cita</button>
@@ -102,13 +107,13 @@
   </section>
 
   <section id="contacto" class="seccion gris">
-    <h2>Pásate por aquí</h2>
+    <h2>Pasate por acá</h2>
     <p>Calle Principal 123</p>
     <p>600 000 000</p>
     <p>Lunes a sábado · 10:00 – 20:00</p>
   </section>
 
-  <footer>© 2026 Legado Barber Club · Tu legado empieza aquí</footer>
+  <footer>© 2026 Legado Barber Club · Escuchamos antes de cortar</footer>
 
   <script src="script.js"></script>
 </body>

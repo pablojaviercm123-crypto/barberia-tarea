@@ -122,3 +122,12 @@ form .btn { justify-self: start; margin-top: .5rem; }
   .hero .btn + .btn { margin-left: 0; }
   nav ul { flex-wrap: wrap; justify-content: center; }
 }
+
+/* Textos de la propuesta creativa */
+.hero h1 { max-width: 900px; margin-left: auto; margin-right: auto; }
+.hero-texto { max-width: 640px; margin: 0 auto; font-size: 1.05rem; letter-spacing: normal; text-transform: none; line-height: 1.8; }
+.relato { max-width: 700px; margin: 0 auto 1rem; text-align: left; font-size: 1.1rem; }
+.relato p { margin-bottom: 1.4rem; color: var(--gris-claro); }
+.relato p:first-child::first-letter { font-family: 'Playfair Display', serif; font-size: 3.2rem; float: left; line-height: 1; padding-right: .5rem; }
+.oscura .btn { margin-top: 1.5rem; }
+.ayuda { font-size: .85rem; color: var(--gris); border-left: 2px solid var(--negro); padding-left: .8rem; }
