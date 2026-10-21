@@ -1,5 +1,5 @@
-/* Rye: tipografía vintage/western similar al logo. Inter: texto de lectura */
-@import url('https://fonts.googleapis.com/css2?family=Rye&family=Inter:wght@300;400;500&display=swap');
+/* Poppins Black: títulos gruesos y contundentes como el logo. Inter: texto de lectura */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@900&family=Inter:wght@300;400;500&display=swap');
 
 :root {
   --negro: #0a0a0a;
@@ -7,7 +7,7 @@
   --gris: #6b6b6b;
   --gris-claro: #e8e8e8;
   --blanco: #ffffff;
-  --display: 'Rye', Georgia, serif;
+  --display: 'Poppins', 'Arial Black', sans-serif;
   --nav-alto: 72px;
 }
 
@@ -19,7 +19,7 @@ body {
   overflow-x: hidden;
 }
 img { max-width: 100%; }
-h1, h2, h3 { font-family: var(--display); font-weight: 400; line-height: 1.25; }
+h1, h2, h3 { font-family: var(--display); font-weight: 900; line-height: 1.15; }
 
 /* ---------- Navegación ---------- */
 header { position: sticky; top: 0; z-index: 10; background: var(--negro); }
