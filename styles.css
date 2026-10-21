@@ -1,5 +1,5 @@
-/* Una sola familia (concordancia): Helvetica (Now si está instalada) en títulos y texto,
-   Inter como respaldo donde no hay Helvetica. El contraste lo da el peso: 700 títulos, 400 texto */
+/* Una sola familia (concordancia): Inter, cargada como webfont para que se vea igual en todos los
+   dispositivos (no depende de fuentes instaladas). El contraste lo da el peso: 700 títulos, 400 texto */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap');
 
 :root {
@@ -8,8 +8,8 @@
   --gris: #6b6b6b;
   --gris-claro: #e8e8e8;
   --blanco: #ffffff;
-  --display: 'Helvetica Now Display', 'Helvetica Now Text', 'Helvetica Neue', Helvetica, 'Inter', Arial, sans-serif;
-  --texto: 'Helvetica Now Text', 'Helvetica Neue', Helvetica, 'Inter', Arial, sans-serif;
+  --display: 'Inter', Arial, sans-serif;
+  --texto: 'Inter', Arial, sans-serif;
   --nav-alto: 72px;
   --radio: 14px;
   /* Margen lateral común: todo el contenido comparte el mismo borde izquierdo (máx. 1100px) */
