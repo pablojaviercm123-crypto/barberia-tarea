@@ -84,3 +84,7 @@ footer {
   nav ul { gap: 1.2rem; }
   .hero { padding: 7rem 1.5rem; }
 }
+
+/* Logo: original en negro sobre blanco; se invierte para fondos oscuros */
+.logo img { height: 48px; display: block; filter: invert(1); mix-blend-mode: lighten; }
+.hero-logo { width: min(360px, 70%); margin: 0 auto 2rem; display: block; filter: invert(1); mix-blend-mode: lighten; }
