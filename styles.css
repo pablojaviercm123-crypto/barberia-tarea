@@ -245,5 +245,10 @@ footer p { text-align: right; }
 
 @media (max-width: 480px) {
   .btn { display: block; width: 100%; padding: 1rem; }
-  form .btn { justify-self: stretch; }
+}
+
+/* Menos movimiento para quien lo pide en su dispositivo */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
 }

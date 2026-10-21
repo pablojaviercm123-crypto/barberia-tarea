@@ -1,3 +1,8 @@
+// Al cargar o recargar, empezar siempre desde el inicio (sin saltar a #reservar, etc.)
+if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+if (location.hash) history.replaceState(null, '', location.pathname + location.search);
+window.scrollTo(0, 0);
+
 // Menú móvil
 const header = document.querySelector('header');
 const toggle = document.querySelector('.menu-toggle');
@@ -17,10 +22,12 @@ const mensaje = document.getElementById('mensaje');
 // Próximos 6 días abiertos (lunes a sábado) como opciones seleccionables
 const fechaISO = d => [d.getFullYear(), String(d.getMonth() + 1).padStart(2, '0'), String(d.getDate()).padStart(2, '0')].join('-');
 const dias = document.getElementById('dias');
+const ahora = new Date();
 const dia = new Date();
+if (ahora.getHours() >= 19) dia.setDate(dia.getDate() + 1); // Ya no hay turnos hoy
 for (let n = 0; n < 6; dia.setDate(dia.getDate() + 1)) {
   if (dia.getDay() === 0) continue; // Los domingos descansamos
-  const nombre = n === 0 && fechaISO(dia) === fechaISO(new Date())
+  const nombre = fechaISO(dia) === fechaISO(ahora)
     ? 'Hoy'
     : dia.toLocaleDateString('es', { weekday: 'short' }).replace('.', '');
   const mes = dia.toLocaleDateString('es', { month: 'short' }).replace('.', '');
@@ -44,6 +51,8 @@ form.addEventListener('submit', (e) => {
   if (!servicio) return avisar('Elegí un servicio. Si tenés dudas, seleccioná «Corte con asesoramiento».', primero('servicio'));
   if (!fecha) return avisar('Elegí el día que te queda bien.', primero('fecha'));
   if (!franja) return avisar('¿Preferís venir a la mañana o a la tarde?', primero('franja'));
+  if (fecha === fechaISO(new Date()) && franja === 'a la mañana' && new Date().getHours() >= 14)
+    return avisar('Hoy a la mañana ya no llegamos. Elegí la tarde u otro día.', primero('franja'));
 
   const diaTexto = new Date(fecha + 'T12:00')
     .toLocaleDateString('es', { weekday: 'long', day: 'numeric', month: 'long' }).replace(',', '');
