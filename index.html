@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Legado Barber Club</title>
+  <meta name="description" content="Legado Barber Club: barbería clásica donde cada corte deja huella.">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -11,46 +12,104 @@
     <nav>
       <a href="#inicio" class="logo"><img src="img/logo.jpg" alt="Legado Barber Club"></a>
       <ul>
+        <li><a href="#historia">Historia</a></li>
         <li><a href="#servicios">Servicios</a></li>
         <li><a href="#precios">Precios</a></li>
+        <li><a href="#reservar">Reservar</a></li>
         <li><a href="#contacto">Contacto</a></li>
       </ul>
     </nav>
   </header>
 
+  <!-- COPYWRITING: mensaje principal -->
   <section id="inicio" class="hero">
     <img src="img/logo.jpg" alt="Legado Barber Club" class="hero-logo">
-    <h1>Estilo y tradición en cada corte</h1>
-    <p>Barbería clásica con un toque moderno.</p>
-    <a href="#contacto" class="btn">Reserva tu cita</a>
+    <h1>Cada corte deja huella.</h1>
+    <p>Barbería clásica · Hecha para hombres con carácter</p>
+    <a href="#reservar" class="btn">Reserva tu silla</a>
+    <a href="#servicios" class="btn btn-ghost">Ver servicios</a>
   </section>
 
-  <section id="servicios" class="seccion">
+  <!-- STORYTELLING: conflicto y transformación -->
+  <section id="historia" class="seccion">
+    <h2>Una historia que empieza en la silla</h2>
+    <div class="historia">
+      <article>
+        <span class="paso">01 · El conflicto</span>
+        <h3>Te miras al espejo y no te reconoces.</h3>
+        <p>Una entrevista, una boda o simplemente un lunes. Sabes que la imagen que ves no cuenta quién eres, y las prisas no ayudan.</p>
+      </article>
+      <article>
+        <span class="paso">02 · El encuentro</span>
+        <h3>Aquí no tienes prisa. Te escuchamos.</h3>
+        <p>Toalla caliente, buena conversación y un barbero que entiende lo que quieres antes de tocar la tijera.</p>
+      </article>
+      <article>
+        <span class="paso">03 · La transformación</span>
+        <h3>Sales con otra actitud.</h3>
+        <p>No solo cambia tu look: cambia cómo caminas, cómo hablas y cómo te ven. Eso es dejar un legado.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="servicios" class="seccion gris">
     <h2>Servicios</h2>
     <div class="tarjetas">
-      <article><h3>Corte de pelo</h3><p>Clásico, degradado o a tijera.</p></article>
-      <article><h3>Arreglo de barba</h3><p>Perfilado y cuidado con toalla caliente.</p></article>
-      <article><h3>Afeitado clásico</h3><p>Con navaja y productos premium.</p></article>
+      <article><h3>Corte clásico</h3><p>Tijera o máquina, a tu medida y con acabado impecable.</p></article>
+      <article><h3>Barba y perfilado</h3><p>Toalla caliente, navaja y aceites para una barba que impone.</p></article>
+      <article><h3>Afeitado tradicional</h3><p>El ritual de siempre: espuma, navaja y calma.</p></article>
+      <article><h3>Corte + Barba</h3><p>El combo completo para salir listo para todo.</p></article>
     </div>
+    <a href="#reservar" class="btn btn-negro">Quiero este look</a>
   </section>
 
   <section id="precios" class="seccion oscura">
     <h2>Precios</h2>
     <ul class="precios">
-      <li><span>Corte de pelo</span><span>12 €</span></li>
-      <li><span>Arreglo de barba</span><span>8 €</span></li>
-      <li><span>Corte + barba</span><span>18 €</span></li>
-      <li><span>Afeitado clásico</span><span>10 €</span></li>
+      <li><span>Corte clásico</span><span>12 €</span></li>
+      <li><span>Barba y perfilado</span><span>8 €</span></li>
+      <li><span>Afeitado tradicional</span><span>10 €</span></li>
+      <li><span>Corte + Barba</span><span>18 €</span></li>
     </ul>
   </section>
 
-  <section id="contacto" class="seccion">
-    <h2>Contacto</h2>
-    <p>Calle Principal 123</p>
-    <p>600 000 000</p>
-    <p>Lun–Sáb: 10:00 – 20:00</p>
+  <!-- MICROCOPY + UX WRITING: formulario de reserva -->
+  <section id="reservar" class="seccion">
+    <h2>Reserva tu silla</h2>
+    <p class="intro">Elige tu servicio y tu hora. Te confirmamos en minutos.</p>
+    <form id="form-reserva" novalidate>
+      <label>¿Cómo te llamas?
+        <input type="text" name="nombre" placeholder="Tu nombre" required>
+      </label>
+      <label>¿A qué número te escribimos?
+        <input type="tel" name="telefono" placeholder="600 000 000" required>
+      </label>
+      <label>¿Qué te vas a hacer?
+        <select name="servicio" required>
+          <option value="">Elige un servicio</option>
+          <option>Corte clásico</option>
+          <option>Barba y perfilado</option>
+          <option>Afeitado tradicional</option>
+          <option>Corte + Barba</option>
+        </select>
+      </label>
+      <label>¿Qué día te viene bien?
+        <input type="date" name="fecha" required>
+      </label>
+      <button type="submit" class="btn btn-negro">Confirmar mi cita</button>
+      <p id="mensaje" role="status" aria-live="polite"></p>
+    </form>
   </section>
 
-  <footer>© 2026 Legado Barber Club</footer>
+  <section id="contacto" class="seccion gris">
+    <h2>Pásate por aquí</h2>
+    <p>Calle Principal 123</p>
+    <p>600 000 000</p>
+    <p>Lunes a sábado · 10:00 – 20:00</p>
+  </section>
+
+  <footer>© 2026 Legado Barber Club · Tu legado empieza aquí</footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
