@@ -64,9 +64,15 @@ nav ul a:hover { border-color: var(--blanco); }
 /* ---------- Portada ---------- */
 .hero {
   color: var(--blanco);
-  padding: clamp(4.5rem, 14vw, 10rem) var(--margen);
-  background: linear-gradient(rgba(0,0,0,.75), rgba(0,0,0,.75)), var(--gris-oscuro);
+  padding: clamp(4.5rem, 10vw, 8rem) var(--margen);
+  min-height: min(calc(100svh - var(--nav-alto)), 820px);
+  display: flex; flex-direction: column; justify-content: center;
+  /* Degradado a la izquierda para que el texto se lea sobre la foto */
+  background:
+    linear-gradient(90deg, rgba(10,10,10,.95) 0%, rgba(10,10,10,.85) 38%, rgba(10,10,10,.25) 70%, rgba(10,10,10,.1) 100%),
+    url('img/portada.webp') center / cover no-repeat var(--negro);
 }
+.hero-contenido { max-width: 640px; }
 .hero h1 { font-size: clamp(2.2rem, 7vw, 4.6rem); line-height: 1.05; letter-spacing: -.02em; max-width: 16ch; margin-bottom: 1.6rem; }
 .hero-texto { max-width: 56ch; font-size: clamp(1rem, 2.5vw, 1.15rem); line-height: 1.7; color: #bdbdbd; }
 
@@ -102,7 +108,13 @@ nav ul a:hover { border-color: var(--blanco); }
 .historia p { color: var(--gris); }
 
 /* Historia de Diego */
+.diego-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 4rem); align-items: center; }
+.diego-foto {
+  width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 50%;
+  border-radius: var(--radio); display: block;
+}
 .relato { max-width: 62ch; font-size: clamp(1rem, 2.5vw, 1.12rem); }
+.relato .btn { margin-top: 1rem; }
 .relato p { margin-bottom: 1.4rem; color: var(--gris-claro); }
 .relato p:first-child::first-letter {
   font-family: var(--display); font-weight: 700; font-size: 3.2rem; float: left; line-height: 1; padding-right: .5rem;
@@ -239,6 +251,16 @@ footer p { text-align: right; }
   .abierto nav ul { display: flex; }
   nav ul a { display: block; padding: .9rem 0; border: 0; font-size: .85rem; }
   .logo img { height: 46px; }
+  /* Portada en celular: foto vertical, texto abajo */
+  .hero {
+    justify-content: flex-end; min-height: calc(100svh - var(--nav-alto));
+    padding-top: 2rem; padding-bottom: 2.5rem;
+    background:
+      linear-gradient(0deg, rgba(10,10,10,.97) 0%, rgba(10,10,10,.85) 38%, rgba(10,10,10,.2) 70%, rgba(10,10,10,.05) 100%),
+      url('img/portada-movil.webp') center top / cover no-repeat var(--negro);
+  }
+  .diego-grid { grid-template-columns: 1fr; }
+  .diego-foto { aspect-ratio: 16 / 10; }
   .datos { grid-template-columns: 1fr; }
   footer p { text-align: left; }
 }
