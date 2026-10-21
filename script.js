@@ -1,3 +1,16 @@
+// Menú móvil
+const header = document.querySelector('header');
+const toggle = document.querySelector('.menu-toggle');
+toggle.addEventListener('click', () => {
+  const abierto = header.classList.toggle('abierto');
+  toggle.setAttribute('aria-expanded', abierto);
+  toggle.setAttribute('aria-label', abierto ? 'Cerrar menú' : 'Abrir menú');
+});
+header.querySelectorAll('nav ul a').forEach(a => a.addEventListener('click', () => {
+  header.classList.remove('abierto');
+  toggle.setAttribute('aria-expanded', false);
+}));
+
 const form = document.getElementById('form-reserva');
 const mensaje = document.getElementById('mensaje');
 
