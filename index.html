@@ -70,34 +70,74 @@
   </section>
 
   <!-- 3. UX WRITING: ayuda en la reserva -->
-  <section id="reservar" class="seccion">
-    <h2>Encontrá tu corte</h2>
-    <p class="intro">Elegí tu servicio y el día que te queda bien. Te confirmamos por mensaje.</p>
-    <form id="form-reserva" novalidate>
-      <label>¿Cómo te llamás?
-        <input type="text" name="nombre" placeholder="Tu nombre" required>
-      </label>
-      <label>¿A qué número te escribimos?
-        <input type="tel" name="telefono" placeholder="600 000 000" required>
-      </label>
-      <label>¿Qué servicio querés?
-        <select name="servicio" required>
-          <option value="">Elegí un servicio</option>
-          <option>Corte con asesoramiento</option>
-          <option>Corte clásico</option>
-          <option>Barba y perfilado</option>
-          <option>Corte + Barba</option>
-        </select>
-      </label>
-      <p class="ayuda">¿Todavía no sabés qué corte elegir? Seleccioná «Corte con asesoramiento» al reservar y lo decidimos juntos cuando vengás.</p>
-      <label>¿Qué día te queda bien?
-        <input type="date" name="fecha" required>
-      </label>
-      <button type="submit" class="btn btn-negro">Confirmar mi cita</button>
-      <p id="mensaje" role="status" aria-live="polite"></p>
-    </form>
-  </section>
+  <section id="reservar" class="seccion oscura reserva">
+    <div class="reserva-grid">
+      <div class="reserva-info">
+        <span class="etiqueta">Reserva online</span>
+        <h2>Encontrá tu corte</h2>
+        <p>Elegí tu servicio y el día que te queda bien. Te confirmamos por mensaje.</p>
+        <ul class="beneficios">
+          <li>Te escuchamos antes de cortar</li>
+          <li>Te asesoramos según tu rostro, tu cabello y tu rutina</li>
+          <li>Te enseñamos a peinarlo en casa</li>
+        </ul>
+      </div>
 
+      <form id="form-reserva" class="tarjeta-form" novalidate>
+        <fieldset>
+          <legend><span class="num">01</span> Tus datos</legend>
+          <label>¿Cómo te llamás?
+            <input type="text" name="nombre" placeholder="Tu nombre" autocomplete="given-name" required>
+          </label>
+          <label>¿A qué número te escribimos?
+            <input type="tel" name="telefono" placeholder="11 2345 6789" inputmode="tel" autocomplete="tel" required>
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend><span class="num">02</span> ¿Qué servicio querés?</legend>
+          <div class="opciones servicios">
+            <label class="opcion">
+              <input type="radio" name="servicio" value="Corte con asesoramiento">
+              <span><em class="badge">Si tenés dudas</em><strong>Corte con asesoramiento</strong><small>Lo decidimos juntos</small></span>
+            </label>
+            <label class="opcion">
+              <input type="radio" name="servicio" value="Corte clásico">
+              <span><strong>Corte clásico</strong><small>Tijera o máquina</small></span>
+            </label>
+            <label class="opcion">
+              <input type="radio" name="servicio" value="Barba y perfilado">
+              <span><strong>Barba y perfilado</strong><small>Navaja y toalla caliente</small></span>
+            </label>
+            <label class="opcion">
+              <input type="radio" name="servicio" value="Corte + Barba">
+              <span><strong>Corte + Barba</strong><small>El combo completo</small></span>
+            </label>
+          </div>
+          <p class="ayuda">¿Todavía no sabés qué corte elegir? Seleccioná «Corte con asesoramiento» al reservar y lo decidimos juntos cuando vengás.</p>
+        </fieldset>
+
+        <fieldset>
+          <legend><span class="num">03</span> ¿Qué día te queda bien?</legend>
+          <!-- Los próximos días abiertos se generan en script.js -->
+          <div class="opciones dias" id="dias"></div>
+          <div class="opciones franjas">
+            <label class="opcion">
+              <input type="radio" name="franja" value="a la mañana">
+              <span><strong>Mañana</strong><small>10:00 – 14:00</small></span>
+            </label>
+            <label class="opcion">
+              <input type="radio" name="franja" value="a la tarde">
+              <span><strong>Tarde</strong><small>14:00 – 20:00</small></span>
+            </label>
+          </div>
+        </fieldset>
+
+        <button type="submit" class="btn btn-negro btn-bloque">Confirmar mi cita</button>
+        <p id="mensaje" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
   <section id="contacto" class="seccion gris">
     <h2>Pasate por acá</h2>
     <p>Calle Principal 123</p>
