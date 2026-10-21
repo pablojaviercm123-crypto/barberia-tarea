@@ -125,6 +125,7 @@ input, select {
   width: 100%; padding: .9rem 1rem; font: inherit; font-size: 1rem; /* 16px evita el zoom en iOS */
   border: 1px solid var(--negro); background: var(--blanco); color: var(--negro); border-radius: 0;
 }
+[aria-invalid] { border-width: 2px; }
 input:focus, select:focus { outline: 2px solid var(--negro); outline-offset: 2px; }
 .ayuda { font-size: .85rem; color: var(--gris); border-left: 2px solid var(--negro); padding-left: .8rem; }
 form .btn { justify-self: start; margin-top: .5rem; }
@@ -136,7 +137,7 @@ form .btn { justify-self: start; margin-top: .5rem; }
 
 footer {
   text-align: center; padding: 2rem 1rem; background: var(--negro);
-  color: var(--gris); font-size: .75rem; letter-spacing: .15em; text-transform: uppercase;
+  color: #a0a0a0; font-size: .75rem; letter-spacing: .15em; text-transform: uppercase;
 }
 
 /* ---------- Tablet y móvil ---------- */
