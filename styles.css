@@ -1,5 +1,5 @@
-/* Títulos en Helvetica (Now si está instalada) en negrita; Inter Bold como respaldo donde no hay Helvetica.
-   Inter también es el texto de lectura */
+/* Una sola familia (concordancia): Helvetica (Now si está instalada) en títulos y texto,
+   Inter como respaldo donde no hay Helvetica. El contraste lo da el peso: 700 títulos, 400 texto */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap');
 
 :root {
@@ -9,13 +9,17 @@
   --gris-claro: #e8e8e8;
   --blanco: #ffffff;
   --display: 'Helvetica Now Display', 'Helvetica Now Text', 'Helvetica Neue', Helvetica, 'Inter', Arial, sans-serif;
+  --texto: 'Helvetica Now Text', 'Helvetica Neue', Helvetica, 'Inter', Arial, sans-serif;
   --nav-alto: 72px;
+  --radio: 14px;
+  /* Margen lateral común: todo el contenido comparte el mismo borde izquierdo (máx. 1100px) */
+  --margen: max(clamp(1rem, 5vw, 1.5rem), calc((100% - 1100px) / 2));
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; scroll-padding-top: var(--nav-alto); }
 body {
-  font-family: 'Inter', sans-serif; font-weight: 300;
+  font-family: var(--texto); font-weight: 400;
   color: var(--negro); background: var(--blanco); line-height: 1.7;
   overflow-x: hidden;
 }
@@ -26,7 +30,7 @@ h1, h2, h3 { font-family: var(--display); font-weight: 700; line-height: 1.15; l
 header { position: sticky; top: 0; z-index: 10; background: var(--negro); }
 nav {
   display: flex; justify-content: space-between; align-items: center;
-  max-width: 1200px; margin: auto; padding: .8rem clamp(1rem, 4vw, 3rem);
+  padding: .7rem var(--margen);
   min-height: var(--nav-alto);
 }
 nav a { color: var(--blanco); text-decoration: none; }
@@ -37,8 +41,8 @@ nav ul a {
 }
 nav ul a:hover { border-color: var(--blanco); }
 
-/* Logo: original en negro sobre blanco; se invierte para fondos oscuros */
-.logo img { height: 48px; display: block; filter: invert(1); mix-blend-mode: lighten; }
+/* Logo en PNG blanco transparente, recortado al dibujo */
+.logo img { height: 52px; width: auto; display: block; }
 
 .menu-toggle {
   display: none; background: none; border: 0; cursor: pointer;
@@ -59,31 +63,30 @@ nav ul a:hover { border-color: var(--blanco); }
 
 /* ---------- Portada ---------- */
 .hero {
-  text-align: center; color: var(--blanco);
-  padding: clamp(4rem, 12vw, 9rem) clamp(1rem, 5vw, 2rem);
+  color: var(--blanco);
+  padding: clamp(4.5rem, 14vw, 10rem) var(--margen);
   background: linear-gradient(rgba(0,0,0,.75), rgba(0,0,0,.75)), var(--gris-oscuro);
 }
-.hero h1 { font-size: clamp(1.7rem, 5vw, 3.4rem); max-width: 900px; margin: 0 auto 1.5rem; }
-.hero-texto { max-width: 640px; margin: 0 auto; font-size: clamp(.95rem, 2.5vw, 1.1rem); line-height: 1.8; color: var(--gris-claro); }
+.hero h1 { font-size: clamp(2.2rem, 7vw, 4.6rem); line-height: 1.05; letter-spacing: -.02em; max-width: 16ch; margin-bottom: 1.6rem; }
+.hero-texto { max-width: 56ch; font-size: clamp(1rem, 2.5vw, 1.15rem); line-height: 1.7; color: #bdbdbd; }
 
 /* ---------- Botones ---------- */
 .btn {
-  display: inline-block; margin-top: 2.5rem; padding: 1rem 2.6rem;
+  display: inline-block; margin-top: 2.5rem; padding: 1rem 2.6rem; text-align: center;
   background: var(--blanco); color: var(--negro); text-decoration: none;
   font-family: inherit; font-size: .8rem; font-weight: 500; letter-spacing: .2em; text-transform: uppercase;
-  border: 1px solid var(--blanco); cursor: pointer; transition: all .3s;
+  border: 1px solid var(--blanco); border-radius: var(--radio); cursor: pointer; transition: all .3s;
 }
 .btn:hover { background: transparent; color: var(--blanco); }
 .btn-negro { background: var(--negro); color: var(--blanco); border-color: var(--negro); }
 .btn-negro:hover { background: transparent; color: var(--negro); }
 
 /* ---------- Secciones ---------- */
-.seccion { padding: clamp(3.5rem, 9vw, 6rem) clamp(1rem, 5vw, 1.5rem); text-align: center; }
-.seccion > * { max-width: 1000px; margin-left: auto; margin-right: auto; }
-.seccion h2 { font-size: clamp(1.6rem, 4.5vw, 2.4rem); }
+.seccion { padding: clamp(4rem, 10vw, 7rem) var(--margen); }
+.seccion h2 { font-size: clamp(1.8rem, 5vw, 2.8rem); letter-spacing: -.015em; }
 .seccion h2::after {
-  content: ''; display: block; width: 50px; height: 1px;
-  background: currentColor; margin: 1rem auto clamp(2rem, 5vw, 3rem);
+  content: ''; display: block; width: 48px; height: 3px;
+  background: currentColor; margin: 1.1rem 0 clamp(2rem, 5vw, 3rem);
 }
 .oscura { background: var(--negro); color: var(--blanco); }
 .gris { background: #f4f4f4; }
@@ -99,7 +102,7 @@ nav ul a:hover { border-color: var(--blanco); }
 .historia p { color: var(--gris); }
 
 /* Historia de Diego */
-.relato { max-width: 700px; text-align: left; font-size: clamp(1rem, 2.5vw, 1.1rem); }
+.relato { max-width: 62ch; font-size: clamp(1rem, 2.5vw, 1.12rem); }
 .relato p { margin-bottom: 1.4rem; color: var(--gris-claro); }
 .relato p:first-child::first-letter {
   font-family: var(--display); font-weight: 700; font-size: 3.2rem; float: left; line-height: 1; padding-right: .5rem;
@@ -111,22 +114,21 @@ nav ul a:hover { border-color: var(--blanco); }
   gap: clamp(1rem, 3vw, 2rem);
 }
 .tarjetas article {
-  padding: 2.2rem 1.5rem; border: 1px solid #d6d6d6; background: var(--blanco); transition: all .3s;
+  padding: 1.8rem 1.5rem; border: 1px solid #e2e2e2; border-radius: var(--radio); background: var(--blanco); transition: all .3s;
 }
 .tarjetas article:hover { background: var(--negro); color: var(--blanco); border-color: var(--negro); }
-.tarjetas h3 { margin-bottom: .6rem; font-size: 1.2rem; }
+.tarjetas h3 { margin-bottom: .5rem; font-size: 1.15rem; }
 .tarjetas p { color: var(--gris); transition: color .3s; }
 .tarjetas article:hover p { color: var(--gris-claro); }
 
 /* Formulario de reserva */
 .reserva-grid {
-  display: grid; grid-template-columns: 1fr 1.35fr; gap: clamp(2rem, 6vw, 5rem);
-  max-width: 1100px; text-align: left; align-items: start;
+  display: grid; grid-template-columns: 1fr 1.35fr; gap: clamp(2rem, 6vw, 5rem); align-items: start;
 }
 .reserva-info { position: sticky; top: calc(var(--nav-alto) + 2rem); }
 .etiqueta { font-size: .75rem; letter-spacing: .2em; text-transform: uppercase; color: #9a9a9a; }
 .reserva-info h2 { margin-top: .6rem; }
-.reserva-info h2::after { margin-left: 0; margin-bottom: 1.5rem; }
+.reserva-info h2::after { margin-bottom: 1.5rem; }
 .reserva-info > p { color: var(--gris-claro); margin-bottom: 1.8rem; }
 .beneficios { list-style: none; display: grid; gap: .9rem; }
 .beneficios li { display: flex; gap: .8rem; align-items: baseline; color: var(--gris-claro); }
@@ -147,7 +149,7 @@ legend {
 }
 .num {
   display: inline-grid; place-items: center; width: 30px; height: 30px; border-radius: 50%;
-  background: var(--negro); color: var(--blanco); font-family: 'Inter', sans-serif; font-size: .7rem; font-weight: 500;
+  background: var(--negro); color: var(--blanco); font-family: var(--texto); font-size: .7rem; font-weight: 500;
 }
 label { font-size: .85rem; font-weight: 400; display: grid; gap: .45rem; }
 input[type=text], input[type=tel] {
@@ -166,7 +168,7 @@ input[aria-invalid] { background: var(--blanco); border-color: var(--negro); }
 .opcion { position: relative; cursor: pointer; display: block; }
 .opcion input { position: absolute; opacity: 0; pointer-events: none; }
 .opcion > span {
-  display: block; height: 100%; padding: .95rem 1rem; border: 1.5px solid #e2e2e2; border-radius: 14px;
+  display: block; height: 100%; padding: .95rem 1rem; border: 1.5px solid #e2e2e2; border-radius: var(--radio);
   background: var(--blanco); transition: border-color .2s, background .2s, color .2s, transform .1s;
 }
 .opcion:hover > span { border-color: var(--negro); }
@@ -195,7 +197,7 @@ input[aria-invalid] { background: var(--blanco); border-color: var(--negro); }
   content: '?'; position: absolute; left: 1rem; top: .95rem; width: 20px; height: 20px; border-radius: 50%;
   background: var(--negro); color: var(--blanco); display: grid; place-items: center; font-size: .7rem; font-weight: 500;
 }
-.tarjeta-form .btn-bloque { display: block; width: 100%; margin-top: 0; border-radius: 14px; padding: 1.1rem; }
+.tarjeta-form .btn-bloque { display: block; width: 100%; margin-top: 0; border-radius: var(--radio); padding: 1.1rem; }
 #mensaje:empty { display: none; }
 #mensaje { font-size: .95rem; border-radius: 12px; padding: 1rem 1.1rem; margin-top: -1rem; }
 #mensaje.error { background: #f3f3f3; border-left: 3px solid var(--negro); }
@@ -206,12 +208,18 @@ input[aria-invalid] { background: var(--blanco); border-color: var(--negro); }
   .reserva-info { position: static; }
 }
 
-#contacto p { color: var(--gris); }
+/* Contacto: tres datos agrupados, mismo formato */
+.datos { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1.5rem, 4vw, 3rem); }
+.datos div { border-top: 2px solid var(--negro); padding-top: 1.1rem; }
+.datos p { font-size: 1.05rem; margin-top: .4rem; }
 
 footer {
-  text-align: center; padding: 2rem 1rem; background: var(--negro);
+  display: flex; justify-content: space-between; align-items: center; gap: 1.5rem; flex-wrap: wrap;
+  padding: 2.5rem var(--margen); background: var(--negro);
   color: #a0a0a0; font-size: .75rem; letter-spacing: .15em; text-transform: uppercase;
 }
+footer img { height: 56px; width: auto; display: block; }
+footer p { text-align: right; }
 
 /* ---------- Tablet y móvil ---------- */
 @media (max-width: 1023px) {
@@ -226,11 +234,13 @@ footer {
   nav { flex-wrap: wrap; }
   nav ul {
     display: none; flex-direction: column; gap: 0; width: 100%;
-    padding: .5rem 0 1rem; text-align: center;
+    padding: .5rem 0 1rem; text-align: left;
   }
   .abierto nav ul { display: flex; }
   nav ul a { display: block; padding: .9rem 0; border: 0; font-size: .85rem; }
-  .logo img { height: 40px; }
+  .logo img { height: 46px; }
+  .datos { grid-template-columns: 1fr; }
+  footer p { text-align: left; }
 }
 
 @media (max-width: 480px) {
