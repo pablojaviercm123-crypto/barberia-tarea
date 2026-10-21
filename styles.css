@@ -1,5 +1,6 @@
-/* Poppins Black: títulos gruesos y contundentes como el logo. Inter: texto de lectura */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@900&family=Inter:wght@300;400;500&display=swap');
+/* Títulos en Helvetica (Now si está instalada) en negrita; Inter Bold como respaldo donde no hay Helvetica.
+   Inter también es el texto de lectura */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap');
 
 :root {
   --negro: #0a0a0a;
@@ -7,7 +8,7 @@
   --gris: #6b6b6b;
   --gris-claro: #e8e8e8;
   --blanco: #ffffff;
-  --display: 'Poppins', 'Arial Black', sans-serif;
+  --display: 'Helvetica Now Display', 'Helvetica Now Text', 'Helvetica Neue', Helvetica, 'Inter', Arial, sans-serif;
   --nav-alto: 72px;
 }
 
@@ -19,7 +20,7 @@ body {
   overflow-x: hidden;
 }
 img { max-width: 100%; }
-h1, h2, h3 { font-family: var(--display); font-weight: 900; line-height: 1.15; }
+h1, h2, h3 { font-family: var(--display); font-weight: 700; line-height: 1.15; letter-spacing: -.01em; }
 
 /* ---------- Navegación ---------- */
 header { position: sticky; top: 0; z-index: 10; background: var(--negro); }
@@ -101,7 +102,7 @@ nav ul a:hover { border-color: var(--blanco); }
 .relato { max-width: 700px; text-align: left; font-size: clamp(1rem, 2.5vw, 1.1rem); }
 .relato p { margin-bottom: 1.4rem; color: var(--gris-claro); }
 .relato p:first-child::first-letter {
-  font-family: var(--display); font-size: 3.2rem; float: left; line-height: 1; padding-right: .5rem;
+  font-family: var(--display); font-weight: 700; font-size: 3.2rem; float: left; line-height: 1; padding-right: .5rem;
 }
 
 /* Servicios */
