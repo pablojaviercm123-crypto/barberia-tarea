@@ -1,0 +1,41 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: Georgia, serif; color: #222; line-height: 1.6; }
+
+nav {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 2rem; background: #111; position: sticky; top: 0;
+}
+nav a { color: #fff; text-decoration: none; }
+.logo { font-size: 1.3rem; font-weight: bold; color: #c9a227; }
+nav ul { display: flex; gap: 1.5rem; list-style: none; }
+nav ul a:hover { color: #c9a227; }
+
+.hero {
+  text-align: center; color: #fff; padding: 8rem 1rem;
+  background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), #333;
+}
+.hero h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+.btn {
+  display: inline-block; margin-top: 1.5rem; padding: .8rem 2rem;
+  background: #c9a227; color: #111; text-decoration: none; font-weight: bold; border-radius: 4px;
+}
+.btn:hover { background: #e0b92f; }
+
+.seccion { padding: 4rem 1.5rem; max-width: 900px; margin: auto; text-align: center; }
+.seccion h2 { margin-bottom: 2rem; font-size: 2rem; }
+.oscura { max-width: none; background: #111; color: #fff; }
+
+.tarjetas { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
+.tarjetas article { padding: 1.5rem; border: 1px solid #ddd; border-radius: 6px; }
+.tarjetas h3 { margin-bottom: .5rem; color: #c9a227; }
+
+.precios { list-style: none; max-width: 500px; margin: auto; }
+.precios li { display: flex; justify-content: space-between; padding: .8rem 0; border-bottom: 1px solid #444; }
+
+footer { text-align: center; padding: 1.5rem; background: #000; color: #aaa; }
+
+@media (max-width: 600px) {
+  nav { flex-direction: column; gap: .5rem; }
+  .hero h1 { font-size: 1.8rem; }
+}
