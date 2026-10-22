@@ -77,7 +77,7 @@ nav ul a:hover { border-color: var(--negro); }
   display: flex; flex-direction: column; justify-content: center;
   /* Degradado a la izquierda para que el texto se lea sobre la foto */
   background:
-    linear-gradient(90deg, rgba(10,10,10,.95) 0%, rgba(10,10,10,.85) 38%, rgba(10,10,10,.25) 70%, rgba(10,10,10,.1) 100%),
+    linear-gradient(90deg, rgba(10,10,10,.95) 0%, rgba(10,10,10,.85) 38%, rgba(10,10,10,.15) 68%, rgba(10,10,10,0) 100%),
     url('img/espejo.webp') 70% center / cover no-repeat var(--negro);
 }
 .hero-contenido { max-width: 640px; }
