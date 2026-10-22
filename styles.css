@@ -29,26 +29,26 @@ img { max-width: 100%; }
 h1, h2, h3 { font-family: var(--display); font-weight: 700; line-height: 1.15; letter-spacing: -.01em; }
 
 /* ---------- Navegación ---------- */
-/* Cabecera blanca flotante, en forma de cápsula */
+/* Cabecera negra flotante, en forma de cápsula, sobre el fondo blanco de la web */
 header {
   position: sticky; top: var(--hueco); z-index: 10; margin: var(--hueco);
-  background: rgba(255,255,255,.9); -webkit-backdrop-filter: saturate(160%) blur(16px); backdrop-filter: saturate(160%) blur(16px);
-  border: 1px solid rgba(0,0,0,.06); border-radius: 22px; box-shadow: 0 10px 30px rgba(0,0,0,.08);
+  background: rgba(10,10,10,.97); -webkit-backdrop-filter: saturate(160%) blur(16px); backdrop-filter: saturate(160%) blur(16px);
+  border: 1px solid rgba(255,255,255,.08); border-radius: 22px; box-shadow: 0 12px 32px rgba(0,0,0,.18);
 }
 nav {
   display: flex; justify-content: space-between; align-items: center;
   padding: .55rem clamp(1rem, 3vw, 2rem);
   min-height: var(--nav-alto);
 }
-nav a { color: var(--negro); text-decoration: none; }
+nav a { color: var(--blanco); text-decoration: none; }
 nav ul { display: flex; gap: clamp(1.2rem, 3vw, 2.5rem); list-style: none; }
 nav ul a {
   font-size: .78rem; font-weight: 400; letter-spacing: .2em; text-transform: uppercase;
   padding-bottom: 4px; border-bottom: 1px solid transparent; transition: border-color .3s;
 }
-nav ul a:hover { border-color: var(--negro); }
+nav ul a:hover { border-color: var(--blanco); }
 
-/* Logo en PNG transparente, recortado al dibujo (negro en la cabecera, blanco en el pie) */
+/* Logo en PNG blanco transparente, recortado al dibujo */
 .logo img { height: 48px; width: auto; display: block; }
 
 .menu-toggle {
@@ -59,7 +59,7 @@ nav ul a:hover { border-color: var(--negro); }
 .menu-toggle span::before,
 .menu-toggle span::after {
   content: ''; position: absolute; left: 10px; width: 24px; height: 2px;
-  background: var(--negro); transition: transform .3s, background .3s;
+  background: var(--blanco); transition: transform .3s, background .3s;
 }
 .menu-toggle span { top: 21px; }
 .menu-toggle span::before { left: 0; top: -7px; }
