@@ -133,8 +133,17 @@ nav ul a:hover { border-color: var(--negro); }
 /* Historia de Diego */
 .relato { max-width: 62ch; font-size: clamp(1rem, 2.5vw, 1.12rem); }
 .relato p { margin-bottom: 1.4rem; color: var(--gris-claro); }
+/* Letra capitular de 2 líneas: arriba alineada con la altura de las mayúsculas,
+   abajo con la línea base de la segunda línea */
 .relato p:first-child::first-letter {
-  font-family: var(--display); font-weight: 700; font-size: 3.2rem; float: left; line-height: 1; padding-right: .5rem;
+  font-family: var(--display); font-weight: 700;
+  float: left; font-size: 3.55em; line-height: .78; margin: .07em .12em 0 0; /* respaldo sin initial-letter */
+}
+@supports (initial-letter: 2) or (-webkit-initial-letter: 2) {
+  .relato p:first-child::first-letter {
+    float: none; font-size: inherit; line-height: inherit; margin: 0 .4em 0 0;
+    -webkit-initial-letter: 2; initial-letter: 2;
+  }
 }
 .storyboard {
   list-style: none; display: grid; grid-template-columns: repeat(4, 1fr);
