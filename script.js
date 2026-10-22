@@ -74,3 +74,20 @@ function avisar(texto, campo) {
     campo.focus();
   }
 }
+
+// Aparición suave de los bloques al bajar por la página
+const aRevelar = document.querySelectorAll('.eyebrow, .seccion h2, .historia article, .relato, .storyboard li, .tarjetas article, .reserva-info, .tarjeta-form, .datos div');
+if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const observador = new IntersectionObserver(entradas => entradas.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); observador.unobserve(e.target); }
+  }), { threshold: .12, rootMargin: '0px 0px -40px 0px' });
+  const carrusel = matchMedia('(max-width: 760px)').matches; // en celular el storyboard se desliza en horizontal
+  aRevelar.forEach(el => {
+    if (carrusel && el.matches('.storyboard li')) return;
+    el.classList.add('revelar');
+    // Pequeño escalonado dentro de cada grupo
+    const hermanos = [...el.parentElement.children];
+    el.style.transitionDelay = `${Math.min(hermanos.indexOf(el), 4) * 80}ms`;
+    observador.observe(el);
+  });
+}
