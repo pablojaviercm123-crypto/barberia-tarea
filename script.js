@@ -42,10 +42,9 @@ function cerrarIngreso(destino) {
 if (!yaEntro) {
   ingreso.hidden = false;
   document.body.classList.add('bloqueado');
-  $('#entrar').focus({ preventScroll: true });
   $('#entrar').addEventListener('click', () => cerrarIngreso());
   $('#entrar-reservar').addEventListener('click', e => { e.preventDefault(); cerrarIngreso('#reservar'); });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !ingreso.hidden) cerrarIngreso(); });
+  document.addEventListener('keydown', e => { if ((e.key === 'Escape' || e.key === 'Enter') && !ingreso.hidden && !e.target.closest('#ingreso')) cerrarIngreso(); });
 }
 
 /* ---------- Abierto / cerrado según la hora real ---------- */

@@ -189,7 +189,7 @@ legend + .etiqueta { margin-top: 0; }
 .opcion input:focus-visible + span { outline: 2px solid var(--negro); outline-offset: 2px; }
 .opcion input:disabled + span { background: var(--gris-50); border-color: var(--gris-50); color: var(--gris-500); cursor: not-allowed; }
 .opcion strong { font-weight: 600; }
-.opcion small { font-size: .875rem; color: var(--gris-500); }
+.opcion small { font-size: .875rem; color: var(--gris-500); white-space: nowrap; }
 .opcion input:checked + span small { color: var(--gris-oscuro-texto); }
 .lista-opciones { display: grid; gap: .6rem; }
 .dias { display: grid; grid-template-columns: repeat(6, 1fr); gap: .5rem; }
