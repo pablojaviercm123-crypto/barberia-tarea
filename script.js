@@ -73,7 +73,7 @@ pintarEstado();
 setInterval(pintarEstado, 60000);
 
 /* ---------- Barra inferior: marca la sección visible ---------- */
-const pestanaDe = { inicio: 'inicio', cambio: 'inicio', servicios: 'servicios', metodo: 'servicios', trabajos: 'servicios', reservar: 'reservar', preguntas: 'ubicacion', ubicacion: 'ubicacion' };
+const pestanaDe = { inicio: 'inicio', historia: 'inicio', cambio: 'inicio', servicios: 'servicios', trabajos: 'servicios', reservar: 'reservar', preguntas: 'ubicacion', ubicacion: 'ubicacion' };
 if ('IntersectionObserver' in window) {
   const obs = new IntersectionObserver(entradas => entradas.forEach(en => {
     if (!en.isIntersecting) return;

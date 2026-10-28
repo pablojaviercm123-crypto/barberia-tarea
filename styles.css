@@ -122,7 +122,7 @@ h3 { font-size: 1.375rem; font-weight: 600; letter-spacing: -.01em; }
 /* ---------- De la duda a la confianza ---------- */
 .cambio { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1.5rem, 4vw, 3rem); }
 .cambio img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--r-md); background: var(--gris-50); }
-.cambio article:first-child img { object-position: 50% 30%; }
+.cambio article:first-child img { object-position: 55% 40%; }
 .cambio article:last-child img { object-position: 35% 22%; }
 .cambio h3 { margin-top: 1.5rem; }
 .cambio p { margin-top: .75rem; max-width: 52ch; color: var(--gris-700); }
@@ -139,12 +139,21 @@ h3 { font-size: 1.375rem; font-weight: 600; letter-spacing: -.01em; }
 
 /* ---------- Bloques negros ---------- */
 .bloque-negro { background: var(--negro); color: var(--blanco); padding-block: clamp(4.5rem, 10vw, 8rem); }
-.metodo { display: grid; grid-template-columns: 1.3fr .7fr; gap: clamp(2.5rem, 6vw, 5rem); align-items: center; }
-.metodo h2 { max-width: 13ch; }
-.pasos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: clamp(2.5rem, 5vw, 3.5rem); }
-.pasos h3 { font-size: 1.25rem; }
-.pasos p { margin-top: .6rem; color: var(--gris-oscuro-texto); font-size: 1rem; }
-.metodo-foto img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: 40% 30%; border-radius: var(--r-md); }
+/* Storytelling */
+#historia h2 { max-width: 14ch; }
+.relato { margin-top: clamp(1.75rem, 4vw, 2.5rem); max-width: 62ch; }
+.relato p { color: var(--gris-oscuro-texto); }
+.relato p + p { margin-top: 1.1rem; }
+.relato p:first-child { font-size: clamp(1.1875rem, 2vw, 1.375rem); line-height: 1.5; color: var(--blanco); }
+.storyboard {
+  list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(.75rem, 2vw, 1.25rem);
+  margin-top: clamp(2.5rem, 6vw, 4rem);
+}
+.storyboard img { width: 100%; aspect-ratio: 9 / 10; object-fit: cover; border-radius: var(--r-md); background: #1c1c1b; }
+.storyboard span { display: block; margin-top: .75rem; font-size: .9375rem; color: var(--blanco); }
+.storyboard b { font-weight: 500; color: var(--gris-oscuro-texto); margin-right: .4rem; font-variant-numeric: tabular-nums; }
+.deslizar { display: none; }
+#historia .acciones { margin-top: clamp(2.5rem, 5vw, 3.5rem); }
 
 /* ---------- Trabajos ---------- */
 .galeria { display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(2, clamp(220px, 25vw, 340px)); gap: clamp(.75rem, 1.5vw, 1rem); }
@@ -260,8 +269,7 @@ legend + .etiqueta { margin-top: 0; }
   .menu li:nth-child(n+4) { display: none; }
   .reserva { grid-template-columns: 1fr; }
   .resumen { position: static; order: -1; }
-  .metodo { grid-template-columns: 1fr; }
-  .metodo-foto img { aspect-ratio: 16 / 10; object-position: 40% 25%; }
+
 }
 
 /* ---------- Celular ---------- */
@@ -279,7 +287,15 @@ legend + .etiqueta { margin-top: 0; }
   .cambio { grid-template-columns: 1fr; }
   .servicios li { grid-template-columns: 1fr; padding: 1.25rem 0; }
   .servicios .enlace { justify-self: start; }
-  .pasos { grid-template-columns: 1fr; gap: 1.5rem; }
+  .storyboard {
+    grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 72%;
+    overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none;
+    margin-inline: calc(-1 * clamp(1.25rem, 4vw, 2.5rem)); padding-inline: clamp(1.25rem, 4vw, 2.5rem);
+    scroll-padding-inline: clamp(1.25rem, 4vw, 2.5rem);
+  }
+  .storyboard::-webkit-scrollbar { display: none; }
+  .storyboard li { scroll-snap-align: start; }
+  .deslizar { display: block; margin-top: 1rem; font-size: .875rem; color: var(--gris-oscuro-texto); }
   .galeria { grid-template-columns: 1fr 1fr; grid-template-rows: none; grid-auto-rows: 200px; }
   .g-alta { grid-row: span 2; }
   .g-ancha { grid-column: span 1; }

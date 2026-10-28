@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
-  <link rel="stylesheet" href="styles.css?v=web2">
+  <link rel="stylesheet" href="styles.css?v=web3">
 </head>
 <body>
   <!-- Íconos (un solo set, trazo 1.75) -->
@@ -45,7 +45,7 @@
       <nav aria-label="Principal">
         <ul class="menu">
           <li><a href="#servicios">Servicios</a></li>
-          <li><a href="#metodo">Cómo trabajamos</a></li>
+          <li><a href="#historia">Historia</a></li>
           <li><a href="#trabajos">Trabajos</a></li>
           <li><a href="#preguntas">Preguntas</a></li>
           <li><a href="#ubicacion">Ubicación</a></li>
@@ -77,6 +77,30 @@
       </figure>
     </section>
 
+    <!-- Storytelling -->
+    <section class="bloque-negro" id="historia">
+      <div class="contenedor">
+        <h2>La historia de Diego</h2>
+        <div class="relato">
+          <p>Diego llegó a Legado Barber Club con la foto de un corte que le gustaba, pero con dudas sobre si le quedaría bien. Otras veces había pedido un estilo que después no podía mantener en casa.</p>
+          <p>Antes de empezar, el barbero le preguntó qué buscaba y cuánto tiempo dedicaba a peinarse. Juntos adaptaron la referencia a su rostro, su cabello y su rutina. Al terminar, le enseñó cómo peinarlo en pocos pasos.</p>
+          <p>A la mañana siguiente, Diego pudo acomodarse el cabello por su cuenta y salir sintiéndose seguro con su nuevo estilo.</p>
+        </div>
+        <ol class="storyboard" aria-label="La historia de Diego en 8 momentos">
+          <li><img src="img/historia/01.webp" alt="Diego, pensativo, mira su celular" width="744" height="824" loading="lazy"><span><b>1</b> La duda</span></li>
+          <li><img src="img/historia/02.webp" alt="En el celular, la foto del corte que le gusta" width="748" height="824" loading="lazy"><span><b>2</b> ¿Me quedará bien?</span></li>
+          <li><img src="img/historia/03.webp" alt="Diego le muestra la foto al barbero" width="750" height="824" loading="lazy"><span><b>3</b> Compartir la idea</span></li>
+          <li><img src="img/historia/04.webp" alt="El barbero escucha lo que Diego busca" width="740" height="824" loading="lazy"><span><b>4</b> Escuchar primero</span></li>
+          <li><img src="img/historia/05.webp" alt="El barbero corta adaptando el estilo" width="744" height="842" loading="lazy"><span><b>5</b> Adaptar su estilo</span></li>
+          <li><img src="img/historia/06.webp" alt="El barbero le enseña a peinarse frente al espejo" width="748" height="842" loading="lazy"><span><b>6</b> Aprender a peinarse</span></li>
+          <li><img src="img/historia/07.webp" alt="Diego se peina solo en casa" width="750" height="842" loading="lazy"><span><b>7</b> Listo en pocos pasos</span></li>
+          <li><img src="img/historia/08.webp" alt="Diego sale seguro con su nuevo estilo" width="744" height="842" loading="lazy"><span><b>8</b> Elegante y seguro</span></li>
+        </ol>
+        <p class="deslizar">Deslizá para ver la historia</p>
+        <div class="acciones"><a class="btn btn-claro" href="#reservar">Encontrá tu corte <svg class="ico"><use href="#i-flecha"/></svg></a></div>
+      </div>
+    </section>
+
     <!-- Conflicto y transformación -->
     <section class="seccion contenedor" id="cambio">
       <div class="seccion-cabeza">
@@ -84,7 +108,7 @@
       </div>
       <div class="cambio">
         <article>
-          <img src="img/historia/01.webp" alt="Un cliente mira su celular, con dudas sobre qué corte hacerse" width="744" height="842" loading="lazy">
+          <img src="img/duda.webp" alt="Un cliente le muestra al barbero, en su celular, la foto de un corte que no sabe si le quedará bien" width="2000" height="1126" loading="lazy">
           <h3>Antes: querés un cambio, pero te da miedo equivocarte</h3>
           <p>El cliente quiere un cambio de imagen, pero teme elegir un corte que no le favorezca o que sea difícil de mantener en su día a día.</p>
         </article>
@@ -131,32 +155,6 @@
       </ul>
     </section>
 
-    <!-- Cómo trabajamos -->
-    <section class="bloque-negro" id="metodo">
-      <div class="contenedor metodo">
-        <div class="metodo-texto">
-          <h2>Primero escuchamos. Después cortamos.</h2>
-          <div class="pasos">
-            <div>
-              <h3>Charla</h3>
-              <p>Nos contás qué buscás. Si traés una foto de referencia, mejor.</p>
-            </div>
-            <div>
-              <h3>Lectura</h3>
-              <p>Miramos forma de cara, remolinos, textura y cuánto tiempo tenés a la mañana.</p>
-            </div>
-            <div>
-              <h3>Corte y rutina</h3>
-              <p>Cortamos y te mostramos cómo peinarlo en pocos pasos, con lo que tengas en casa.</p>
-            </div>
-          </div>
-        </div>
-        <figure class="metodo-foto">
-          <img src="img/trabajo-consulta.webp" alt="El barbero conversa con un cliente sentado en el sillón antes de empezar el corte" width="1200" height="2132" loading="lazy">
-        </figure>
-      </div>
-    </section>
-
     <!-- Trabajos -->
     <section class="seccion contenedor" id="trabajos">
       <div class="seccion-cabeza">
@@ -164,7 +162,7 @@
         <p>Cada corte se adapta a quien lo lleva.</p>
       </div>
       <div class="galeria">
-        <figure class="g-alta"><img src="img/historia/08.webp" alt="Cliente con corte clásico peinado hacia atrás, saliendo del salón" width="744" height="842" loading="lazy"></figure>
+        <figure class="g-alta"><img src="img/trabajo-consulta.webp" alt="El barbero conversa con un cliente antes de empezar el corte" width="1200" height="2132" loading="lazy"></figure>
         <figure class="g-ancha"><img src="img/trabajo-peinado.webp" alt="El barbero peina y ajusta un corte con rulos" width="2000" height="1126" loading="lazy"></figure>
         <figure class="g-ancha"><img src="img/resultado.webp" alt="Cliente sonriente con su corte nuevo en el salón" width="1672" height="941" loading="lazy"></figure>
       </div>
@@ -314,6 +312,6 @@
     <a href="#ubicacion" data-tab="ubicacion"><svg class="ico"><use href="#i-ubicacion"/></svg>Ubicación</a>
   </nav>
 
-  <script src="script.js?v=web2"></script>
+  <script src="script.js?v=web3"></script>
 </body>
 </html>
