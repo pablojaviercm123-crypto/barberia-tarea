@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
-  <link rel="stylesheet" href="styles.css?v=web5">
+  <link rel="stylesheet" href="styles.css?v=web6">
 </head>
 <body>
   <!-- Íconos (un solo set, trazo 1.75) -->
@@ -23,6 +23,7 @@
     <symbol id="i-flecha" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
     <symbol id="i-volver" viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></symbol>
     <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-pregunta" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.3a2.6 2.6 0 0 1 5 .9c0 1.7-2.5 2.3-2.5 3.8M12 17.2v.1"/></symbol>
   </svg>
 
   <!-- Pantalla de ingreso: se muestra una vez por sesión (script.js) -->
@@ -184,8 +185,23 @@
             <!-- Paso 1 -->
             <fieldset class="paso" data-paso="1">
               <legend>¿Qué servicio querés?</legend>
+              <!-- UX writing: aviso que orienta antes de elegir -->
+              <div class="aviso" id="ayuda-servicio" role="note">
+                <span class="aviso-icono"><svg class="ico"><use href="#i-pregunta"/></svg></span>
+                <div class="aviso-texto">
+                  <p class="aviso-titulo">¿Todavía no sabés qué corte elegir?</p>
+                  <p>Seleccioná «Corte con asesoramiento» al reservar y lo decidimos juntos cuando vengás.</p>
+                  <button type="button" class="btn btn-claro btn-chico" id="elegir-asesoramiento">Elegir asesoramiento</button>
+                </div>
+              </div>
+              <div class="aviso aviso-listo" id="ayuda-lista" role="status" hidden>
+                <span class="aviso-icono"><svg class="ico"><use href="#i-check"/></svg></span>
+                <div class="aviso-texto">
+                  <p class="aviso-titulo">Listo, lo decidimos juntos.</p>
+                  <p>Cuando vengás, charlamos antes de cortar y elegimos el corte que mejor te queda.</p>
+                </div>
+              </div>
               <div class="lista-opciones" id="opciones-servicio"></div>
-              <p class="ayuda" id="ayuda-servicio">¿Todavía no sabés qué corte elegir? Seleccioná «Corte con asesoramiento» al reservar y lo decidimos juntos cuando vengás.</p>
               <p class="error" data-error="servicio" hidden>Elegí un servicio para seguir. Si tenés dudas, seleccioná «Corte con asesoramiento».</p>
             </fieldset>
 
@@ -312,6 +328,6 @@
     <a href="#ubicacion" data-tab="ubicacion"><svg class="ico"><use href="#i-ubicacion"/></svg>Ubicación</a>
   </nav>
 
-  <script src="script.js?v=web5"></script>
+  <script src="script.js?v=web6"></script>
 </body>
 </html>

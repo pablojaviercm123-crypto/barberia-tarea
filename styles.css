@@ -210,7 +210,20 @@ legend + .etiqueta { margin-top: 0; }
 .campo textarea { resize: vertical; min-height: 96px; }
 .campo input:focus, .campo textarea:focus { outline: none; border-color: var(--negro); box-shadow: 0 0 0 3px rgba(11, 11, 11, .1); }
 .campo input[aria-invalid="true"] { border-color: var(--error); }
-.ayuda { margin-top: 1rem; padding: 1rem 1.1rem; border-radius: var(--r-sm); background: var(--gris-50); font-size: .9375rem; color: var(--gris-700); }
+/* UX writing: aviso */
+.aviso {
+  display: flex; gap: .9rem; align-items: flex-start; margin-bottom: 1.25rem;
+  padding: 1.1rem 1.2rem; border-radius: var(--r-md); background: var(--negro); color: var(--blanco);
+}
+.aviso-icono { display: grid; place-items: center; flex: none; width: 36px; height: 36px; border-radius: 50%; background: var(--blanco); color: var(--negro); }
+.aviso-icono .ico { width: 20px; height: 20px; stroke-width: 2; }
+.aviso-texto { font-size: .9375rem; line-height: 1.5; color: var(--gris-oscuro-texto); }
+.aviso-titulo { font-size: 1.0625rem; font-weight: 600; color: var(--blanco); margin-bottom: .2rem; }
+.aviso .btn { margin-top: .9rem; }
+.aviso-listo { background: var(--gris-50); color: var(--negro); border: 1.5px solid var(--negro); }
+.aviso-listo .aviso-icono { background: var(--negro); color: var(--blanco); }
+.aviso-listo .aviso-titulo { color: var(--negro); }
+.aviso-listo .aviso-texto { color: var(--gris-700); }
 .error { margin-top: .6rem; font-size: .875rem; font-weight: 500; color: var(--error); }
 .campo .error { margin-top: 0; }
 .navegacion { display: flex; gap: .75rem; margin-top: 2rem; }

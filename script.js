@@ -155,7 +155,7 @@ pintarResumen();
 
 form.addEventListener('change', e => {
   const { name, value } = e.target;
-  if (name === 'servicio') { estado.servicio = SERVICIOS.find(s => s.nombre === value); pintarHoras(); }
+  if (name === 'servicio') { estado.servicio = SERVICIOS.find(s => s.nombre === value); pintarHoras(); pintarAviso(); }
   if (name === 'fecha') { estado.fecha = value; pintarHoras(); }
   if (name === 'hora') estado.hora = value;
   if (name === 'servicio') ocultarError('servicio');
@@ -202,6 +202,19 @@ $('#siguiente').addEventListener('click', () => {
 });
 $('#atras').addEventListener('click', () => irAPaso(estado.paso - 1));
 
+// UX writing: el aviso ofrece elegir el asesoramiento y confirma cuando está elegido
+function pintarAviso() {
+  const elegido = estado.servicio && estado.servicio.nombre === 'Corte con asesoramiento';
+  $('#ayuda-servicio').hidden = elegido;
+  $('#ayuda-lista').hidden = !elegido;
+}
+$('#elegir-asesoramiento').addEventListener('click', () => {
+  const radio = $('[name=servicio][value="Corte con asesoramiento"]');
+  radio.checked = true;
+  radio.dispatchEvent(new Event('change', { bubbles: true }));
+  radio.focus();
+});
+
 // Los enlaces "Reservar" de cada servicio lo dejan elegido
 $$('[data-servicio]').forEach(a => a.addEventListener('click', () => {
   const radio = $(`[name=servicio][value="${a.dataset.servicio}"]`);
@@ -224,7 +237,7 @@ function confirmar() {
 }
 $('#otra').addEventListener('click', () => {
   form.reset(); Object.assign(estado, { servicio: null, fecha: null, hora: null });
-  pintarHoras(); pintarResumen(); $$('.error', form).forEach(e => { e.hidden = true; });
+  pintarHoras(); pintarResumen(); pintarAviso(); $$('.error', form).forEach(e => { e.hidden = true; });
   $('#confirmacion').hidden = true; form.hidden = false; irAPaso(1);
   $('[name=servicio]').focus();
 });
