@@ -393,3 +393,10 @@ legend + .etiqueta { margin-top: 0; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-delay: 0s !important; transition-duration: .01ms !important; }
 }
+
+/* Cabecera del inicio: el botón «Encontrá tu corte» en una sola línea */
+.cabecera .btn-chico { white-space: nowrap; }
+@media (max-width: 760px) {
+  body:not(.cuerpo-reserva) .cabecera .estado { display: none; }
+  .cabecera .btn-chico { margin-left: auto; }
+}

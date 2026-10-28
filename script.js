@@ -43,7 +43,6 @@ if (ingreso && !yaEntro) {
   ingreso.hidden = false;
   document.body.classList.add('bloqueado');
   $('#entrar').addEventListener('click', () => cerrarIngreso());
-  $('#entrar-reservar').addEventListener('click', () => { try { sessionStorage.setItem('legado-ingreso', '1'); } catch (e) {} });
   document.addEventListener('keydown', e => { if ((e.key === 'Escape' || e.key === 'Enter') && !ingreso.hidden && !e.target.closest('#ingreso')) cerrarIngreso(); });
 }
 
