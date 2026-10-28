@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
-  <link rel="stylesheet" href="styles.css?v=web1">
+  <link rel="stylesheet" href="styles.css?v=web2">
 </head>
 <body>
   <!-- Íconos (un solo set, trazo 1.75) -->
@@ -32,7 +32,7 @@
       <p class="ingreso-frase">Cortes con criterio.</p>
       <div class="ingreso-acciones">
         <button type="button" class="btn btn-claro" id="entrar">Entrar</button>
-        <a class="btn btn-borde-claro" href="#reservar" id="entrar-reservar">Reservar turno</a>
+        <a class="btn btn-borde-claro" href="#reservar" id="entrar-reservar">Encontrá tu corte</a>
       </div>
     </div>
   </div>
@@ -60,10 +60,10 @@
     <!-- Portada -->
     <section class="portada contenedor" id="inicio">
       <div class="portada-texto">
-        <h1>Cortes con criterio.</h1>
-        <p class="bajada">Antes de tocar la tijera miramos tu rostro, tu tipo de pelo y cuánto tiempo le dedicás a peinarte. Así salís con un corte que te queda bien hoy y que podés mantener mañana.</p>
+        <h1>No todos los cortes favorecen a todos por igual.</h1>
+        <p class="bajada">Tu tipo de rostro, tu cabello y hasta el tiempo que dedicás a peinarte importan. Por eso, antes de cortar, te escuchamos, analizamos qué te puede favorecer y te asesoramos.</p>
         <div class="acciones">
-          <a class="btn btn-oscuro" href="#reservar">Reservar turno <svg class="ico"><use href="#i-flecha"/></svg></a>
+          <a class="btn btn-oscuro" href="#reservar">Encontrá tu corte <svg class="ico"><use href="#i-flecha"/></svg></a>
           <a class="enlace" href="#servicios">Ver servicios</a>
         </div>
         <dl class="datos-rapidos">
@@ -75,6 +75,25 @@
       <figure class="portada-foto">
         <img src="img/espejo.webp" alt="Un cliente se mira al espejo de mano mientras el barbero le termina el peinado" width="2560" height="1441" fetchpriority="high">
       </figure>
+    </section>
+
+    <!-- Conflicto y transformación -->
+    <section class="seccion contenedor" id="cambio">
+      <div class="seccion-cabeza">
+        <h2>De la duda a la confianza</h2>
+      </div>
+      <div class="cambio">
+        <article>
+          <img src="img/historia/01.webp" alt="Un cliente mira su celular, con dudas sobre qué corte hacerse" width="744" height="842" loading="lazy">
+          <h3>Antes: querés un cambio, pero te da miedo equivocarte</h3>
+          <p>El cliente quiere un cambio de imagen, pero teme elegir un corte que no le favorezca o que sea difícil de mantener en su día a día.</p>
+        </article>
+        <article>
+          <img src="img/resultado-movil.webp" alt="El mismo cliente, con su corte nuevo, sonríe junto a su barbero" width="1290" height="2292" loading="lazy">
+          <h3>Después: un corte que es para vos</h3>
+          <p>Gracias a la escucha y al asesoramiento personalizado, el cliente pasa de la incertidumbre a la confianza. Encuentra un corte que se adapta a sus características y aprende a mantenerlo en casa.</p>
+        </article>
+      </div>
     </section>
 
     <!-- Servicios -->
@@ -145,7 +164,7 @@
         <p>Cada corte se adapta a quien lo lleva.</p>
       </div>
       <div class="galeria">
-        <figure class="g-alta"><img src="img/resultado-movil.webp" alt="Cliente con corte clásico peinado hacia atrás, junto a su barbero" width="1290" height="2292" loading="lazy"></figure>
+        <figure class="g-alta"><img src="img/historia/08.webp" alt="Cliente con corte clásico peinado hacia atrás, saliendo del salón" width="744" height="842" loading="lazy"></figure>
         <figure class="g-ancha"><img src="img/trabajo-peinado.webp" alt="El barbero peina y ajusta un corte con rulos" width="2000" height="1126" loading="lazy"></figure>
         <figure class="g-ancha"><img src="img/resultado.webp" alt="Cliente sonriente con su corte nuevo en el salón" width="1672" height="941" loading="lazy"></figure>
       </div>
@@ -155,8 +174,8 @@
     <section class="seccion-gris" id="reservar">
       <div class="contenedor">
         <div class="seccion-cabeza">
-          <h2>Reservá tu turno</h2>
-          <p>Tres pasos y menos de un minuto. Te confirmamos por WhatsApp.</p>
+          <h2>Encontrá tu corte</h2>
+          <p>Reservá tu turno en tres pasos. Te confirmamos por WhatsApp.</p>
         </div>
 
         <div class="reserva">
@@ -166,9 +185,10 @@
 
             <!-- Paso 1 -->
             <fieldset class="paso" data-paso="1">
-              <legend>¿Qué te hacés?</legend>
+              <legend>¿Qué servicio querés?</legend>
               <div class="lista-opciones" id="opciones-servicio"></div>
-              <p class="error" data-error="servicio" hidden>Elegí un servicio para seguir. Si dudás, el corte con asesoramiento es para eso.</p>
+              <p class="ayuda" id="ayuda-servicio">¿Todavía no sabés qué corte elegir? Seleccioná «Corte con asesoramiento» al reservar y lo decidimos juntos cuando vengás.</p>
+              <p class="error" data-error="servicio" hidden>Elegí un servicio para seguir. Si tenés dudas, seleccioná «Corte con asesoramiento».</p>
             </fieldset>
 
             <!-- Paso 2 -->
@@ -294,6 +314,6 @@
     <a href="#ubicacion" data-tab="ubicacion"><svg class="ico"><use href="#i-ubicacion"/></svg>Ubicación</a>
   </nav>
 
-  <script src="script.js?v=web1"></script>
+  <script src="script.js?v=web2"></script>
 </body>
 </html>

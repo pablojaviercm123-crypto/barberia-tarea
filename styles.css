@@ -109,7 +109,7 @@ h3 { font-size: 1.375rem; font-weight: 600; letter-spacing: -.01em; }
   display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: center;
   padding-block: clamp(3rem, 8vw, 6rem) clamp(4rem, 9vw, 7rem);
 }
-.portada h1 { font-size: clamp(2.875rem, 7.4vw, 5.75rem); letter-spacing: -.04em; line-height: .96; }
+.portada h1 { font-size: clamp(2.5rem, 5.4vw, 4.5rem); letter-spacing: -.035em; line-height: 1; max-width: 15ch; }
 .bajada { margin-top: 1.5rem; max-width: 44ch; font-size: clamp(1.0625rem, 1.6vw, 1.25rem); color: var(--gris-700); }
 .datos-rapidos {
   display: grid; grid-template-columns: repeat(3, auto); justify-content: start; gap: 1rem 2.5rem;
@@ -118,6 +118,14 @@ h3 { font-size: 1.375rem; font-weight: 600; letter-spacing: -.01em; }
 .datos-rapidos dt { font-size: .875rem; color: var(--gris-500); }
 .datos-rapidos dd { font-weight: 600; font-size: 1rem; }
 .portada-foto img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 71% 40%; border-radius: var(--r-md); background: var(--gris-50); }
+
+/* ---------- De la duda a la confianza ---------- */
+.cambio { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1.5rem, 4vw, 3rem); }
+.cambio img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--r-md); background: var(--gris-50); }
+.cambio article:first-child img { object-position: 50% 30%; }
+.cambio article:last-child img { object-position: 35% 22%; }
+.cambio h3 { margin-top: 1.5rem; }
+.cambio p { margin-top: .75rem; max-width: 52ch; color: var(--gris-700); }
 
 /* ---------- Servicios ---------- */
 .servicios { list-style: none; border-top: 1px solid var(--gris-200); }
@@ -143,7 +151,7 @@ h3 { font-size: 1.375rem; font-weight: 600; letter-spacing: -.01em; }
 .galeria figure { overflow: hidden; border-radius: var(--r-md); background: var(--gris-50); }
 .galeria img { width: 100%; height: 100%; object-fit: cover; }
 .g-alta { grid-row: span 2; }
-.g-alta img { object-position: 35% 25%; }
+.g-alta img { object-position: 50% 30%; }
 .g-ancha { grid-column: span 2; }
 .g-ancha img { object-position: 60% 35%; }
 
@@ -193,6 +201,7 @@ legend + .etiqueta { margin-top: 0; }
 .campo textarea { resize: vertical; min-height: 96px; }
 .campo input:focus, .campo textarea:focus { outline: none; border-color: var(--negro); box-shadow: 0 0 0 3px rgba(11, 11, 11, .1); }
 .campo input[aria-invalid="true"] { border-color: var(--error); }
+.ayuda { margin-top: 1rem; padding: 1rem 1.1rem; border-radius: var(--r-sm); background: var(--gris-50); font-size: .9375rem; color: var(--gris-700); }
 .error { margin-top: .6rem; font-size: .875rem; font-weight: 500; color: var(--error); }
 .campo .error { margin-top: 0; }
 .navegacion { display: flex; gap: .75rem; margin-top: 2rem; }
@@ -267,6 +276,7 @@ legend + .etiqueta { margin-top: 0; }
   .portada-foto img { aspect-ratio: 4 / 3; }
   .datos-rapidos { grid-template-columns: 1fr 1fr; }
   .datos-rapidos div:last-child { grid-column: span 2; }
+  .cambio { grid-template-columns: 1fr; }
   .servicios li { grid-template-columns: 1fr; padding: 1.25rem 0; }
   .servicios .enlace { justify-self: start; }
   .pasos { grid-template-columns: 1fr; gap: 1.5rem; }
