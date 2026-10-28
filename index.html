@@ -2,182 +2,298 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Legado Barber Club</title>
-  <meta name="description" content="Legado Barber Club: te escuchamos, analizamos qué te favorece y te asesoramos antes de cortar.">
-  <meta name="theme-color" content="#ffffff">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Legado Barber Club · Barbería</title>
+  <meta name="description" content="Legado Barber Club: barbería con asesoramiento. Te escuchamos, miramos tu rostro y tu rutina, y recién ahí cortamos. Reservá tu turno online.">
+  <meta name="theme-color" content="#0b0b0b">
   <link rel="icon" href="img/logo.jpg">
   <link rel="apple-touch-icon" href="img/logo.jpg">
-  <link rel="stylesheet" href="styles.css?v=20261022g">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="styles.css?v=web1">
 </head>
 <body>
-  <header>
-    <nav>
-      <a href="#inicio" class="logo"><img src="img/logo-blanco.png" alt="Legado Barber Club" width="72" height="48"></a>
-      <button type="button" class="menu-toggle" aria-label="Abrir menú" aria-expanded="false"><span></span></button>
-      <ul>
-        <li><a href="#historia">Historia</a></li>
-        <li><a href="#servicios">Servicios</a></li>
-        <li><a href="#reservar">Reservar</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-      </ul>
-    </nav>
+  <!-- Íconos (un solo set, trazo 1.75) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-inicio" viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></symbol>
+    <symbol id="i-tijera" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.6 7.6 20 19M8.6 16.4 20 5"/></symbol>
+    <symbol id="i-calendario" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
+    <symbol id="i-ubicacion" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+    <symbol id="i-flecha" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-volver" viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+  </svg>
+
+  <!-- Pantalla de ingreso: se muestra una vez por sesión (script.js) -->
+  <div class="ingreso" id="ingreso" hidden>
+    <div class="ingreso-contenido">
+      <img class="ingreso-logo" src="img/logo-blanco.png" alt="Legado Barber Club" width="600" height="402">
+      <p class="ingreso-frase">Cortes con criterio.</p>
+      <div class="ingreso-acciones">
+        <button type="button" class="btn btn-claro" id="entrar">Entrar</button>
+        <a class="btn btn-borde-claro" href="#reservar" id="entrar-reservar">Reservar turno</a>
+      </div>
+    </div>
+  </div>
+
+  <header class="cabecera">
+    <div class="cabecera-fila">
+      <a href="#inicio" class="logo" aria-label="Legado Barber Club, ir al inicio">
+        <img src="img/logo-blanco.png" alt="" width="72" height="48">
+      </a>
+      <nav aria-label="Principal">
+        <ul class="menu">
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#metodo">Cómo trabajamos</a></li>
+          <li><a href="#trabajos">Trabajos</a></li>
+          <li><a href="#preguntas">Preguntas</a></li>
+          <li><a href="#ubicacion">Ubicación</a></li>
+        </ul>
+      </nav>
+      <span class="estado" data-estado>Horario</span>
+      <a class="btn btn-claro btn-chico" href="#reservar">Reservar</a>
+    </div>
   </header>
 
-  <!-- 1. COPYWRITING + 2. MICROCOPY -->
-  <section id="inicio" class="hero">
-    <div class="hero-contenido">
-    <span class="eyebrow">Barbería con asesoramiento</span>
-    <h1>No todos los cortes favorecen a todos por igual.</h1>
-    <p class="hero-texto">Tu tipo de rostro, tu cabello y hasta el tiempo que dedicás a peinarte importan. Por eso, antes de cortar, te escuchamos, analizamos qué te puede favorecer y te asesoramos.</p>
-    <a href="#reservar" class="btn">Encontrá tu corte</a>
-    </div>
-  </section>
-
-  <!-- 5. CONFLICTO y 6. TRANSFORMACIÓN -->
-  <section id="cambio" class="seccion">
-    <span class="eyebrow">El cambio</span>
-    <h2>De la duda a la confianza</h2>
-    <div class="historia">
-      <article class="caso">
-        <img src="img/historia/01.webp" alt="Diego mira su celular, con dudas sobre qué corte hacerse" width="374" height="412" loading="lazy">
-        <div>
-          <span class="paso">El conflicto</span>
-          <h3>Querés un cambio, pero te da miedo equivocarte.</h3>
-          <p>El cliente quiere un cambio de imagen, pero teme elegir un corte que no le favorezca o que sea difícil de mantener en su día a día.</p>
+  <main>
+    <!-- Portada -->
+    <section class="portada contenedor" id="inicio">
+      <div class="portada-texto">
+        <h1>Cortes con criterio.</h1>
+        <p class="bajada">Antes de tocar la tijera miramos tu rostro, tu tipo de pelo y cuánto tiempo le dedicás a peinarte. Así salís con un corte que te queda bien hoy y que podés mantener mañana.</p>
+        <div class="acciones">
+          <a class="btn btn-oscuro" href="#reservar">Reservar turno <svg class="ico"><use href="#i-flecha"/></svg></a>
+          <a class="enlace" href="#servicios">Ver servicios</a>
         </div>
-      </article>
-      <article class="caso">
-        <img src="img/resultado-movil.webp" alt="Diego, con su nuevo corte, sonríe junto a su barbero" width="941" height="1672" loading="lazy">
-        <div>
-          <span class="paso">La transformación</span>
-          <h3>Salís con un corte que es para vos.</h3>
-          <p>Gracias a la escucha y al asesoramiento personalizado, el cliente pasa de la incertidumbre a la confianza. Encuentra un corte que se adapta a sus características y aprende a mantenerlo en casa.</p>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <!-- 4. STORYTELLING -->
-  <section id="historia" class="seccion oscura">
-    <span class="eyebrow">Así trabajamos</span>
-    <h2>La historia de Diego</h2>
-    <div class="relato">
-      <p>Diego llegó a Legado Barber Club con la foto de un corte que le gustaba, pero con dudas sobre si le quedaría bien. Otras veces había pedido un estilo que después no podía mantener en casa.</p>
-      <p>Antes de empezar, el barbero le preguntó qué buscaba y cuánto tiempo dedicaba a peinarse. Juntos adaptaron la referencia a su rostro, su cabello y su rutina. Al terminar, le enseñó cómo peinarlo en pocos pasos.</p>
-      <p>A la mañana siguiente, Diego pudo acomodarse el cabello por su cuenta y salir sintiéndose seguro con su nuevo estilo.</p>
-    </div>
-    <ol class="storyboard" aria-label="La historia de Diego en 8 momentos">
-      <li><figure><img src="img/historia/01.webp" alt="Diego, pensativo, mira su celular" width="374" height="412" loading="lazy"><figcaption><span>01</span> La duda</figcaption></figure></li>
-      <li><figure><img src="img/historia/02.webp" alt="En el celular, la foto del corte que le gusta" width="376" height="412" loading="lazy"><figcaption><span>02</span> ¿Me quedará bien?</figcaption></figure></li>
-      <li><figure><img src="img/historia/03.webp" alt="Diego le muestra la foto al barbero" width="377" height="412" loading="lazy"><figcaption><span>03</span> Compartir la idea</figcaption></figure></li>
-      <li><figure><img src="img/historia/04.webp" alt="El barbero escucha lo que Diego busca" width="372" height="412" loading="lazy"><figcaption><span>04</span> Escuchar primero</figcaption></figure></li>
-      <li><figure><img src="img/historia/05.webp" alt="El barbero corta adaptando el estilo" width="374" height="421" loading="lazy"><figcaption><span>05</span> Adaptar su estilo</figcaption></figure></li>
-      <li><figure><img src="img/historia/06.webp" alt="El barbero le enseña a peinarse frente al espejo" width="376" height="421" loading="lazy"><figcaption><span>06</span> Aprender a peinarse</figcaption></figure></li>
-      <li><figure><img src="img/historia/07.webp" alt="Diego se peina solo en casa" width="377" height="421" loading="lazy"><figcaption><span>07</span> Listo en pocos pasos</figcaption></figure></li>
-      <li><figure><img src="img/historia/08.webp" alt="Diego sale seguro con su nuevo estilo" width="372" height="421" loading="lazy"><figcaption><span>08</span> Elegante y seguro</figcaption></figure></li>
-    </ol>
-    <p class="deslizar" aria-hidden="true">Deslizá para ver la historia →</p>
-    <a href="#reservar" class="btn">Encontrá tu corte</a>
-  </section>
-
-  <section id="servicios" class="seccion gris">
-    <span class="eyebrow">Lo que hacemos</span>
-    <h2>Servicios</h2>
-    <div class="tarjetas">
-      <article><h3>Corte con asesoramiento</h3><p>Analizamos tu rostro, tu cabello y tu rutina, y decidimos juntos.</p></article>
-      <article><h3>Corte clásico</h3><p>Tijera o máquina, a tu medida y con acabado impecable.</p></article>
-      <article><h3>Barba y perfilado</h3><p>Toalla caliente, navaja y aceites para una barba que impone.</p></article>
-      <article><h3>Corte + Barba</h3><p>El combo completo para salir listo para todo.</p></article>
-    </div>
-  </section>
-
-  <!-- 3. UX WRITING: ayuda en la reserva -->
-  <section id="reservar" class="seccion oscura reserva">
-    <div class="reserva-grid">
-      <div class="reserva-info">
-        <span class="eyebrow">Reserva online</span>
-        <h2>Encontrá tu corte</h2>
-        <p>Elegí tu servicio y el día que te queda bien. Te confirmamos por mensaje.</p>
-        <ul class="beneficios">
-          <li>Te escuchamos antes de cortar</li>
-          <li>Te asesoramos según tu rostro, tu cabello y tu rutina</li>
-          <li>Te enseñamos a peinarlo en casa</li>
-        </ul>
-        <img class="reserva-foto" src="img/resultado.webp" alt="Diego sonríe con su nuevo corte junto a su barbero" width="1672" height="941" loading="lazy">
+        <dl class="datos-rapidos">
+          <div><dt>Horario</dt><dd>Lunes a sábado, 10 a 20 h</dd></div>
+          <div><dt>Turnos</dt><dd>De 30 a 75 minutos</dd></div>
+          <div><dt>Ahora</dt><dd data-estado-largo>—</dd></div>
+        </dl>
       </div>
+      <figure class="portada-foto">
+        <img src="img/espejo.webp" alt="Un cliente se mira al espejo de mano mientras el barbero le termina el peinado" width="2560" height="1441" fetchpriority="high">
+      </figure>
+    </section>
 
-      <form id="form-reserva" class="tarjeta-form" novalidate>
-        <fieldset>
-          <legend><span class="num">01</span> Tus datos</legend>
-          <label>¿Cómo te llamás?
-            <input type="text" name="nombre" placeholder="Tu nombre" autocomplete="given-name" required>
-          </label>
-          <label>¿A qué número te escribimos?
-            <input type="tel" name="telefono" placeholder="11 2345 6789" inputmode="tel" autocomplete="tel" required>
-          </label>
-        </fieldset>
+    <!-- Servicios -->
+    <section class="seccion contenedor" id="servicios">
+      <div class="seccion-cabeza">
+        <h2>Servicios</h2>
+        <p>Todos los servicios incluyen una charla previa y te enseñamos a peinarte en casa.</p>
+      </div>
+      <ul class="servicios">
+        <li>
+          <div class="servicio-nombre"><h3>Corte con asesoramiento</h3><span class="duracion">60 min</span></div>
+          <p>Si no sabés qué hacerte. Analizamos rostro, pelo y rutina y decidimos juntos.</p>
+          <a class="enlace" href="#reservar" data-servicio="Corte con asesoramiento">Reservar</a>
+        </li>
+        <li>
+          <div class="servicio-nombre"><h3>Corte clásico</h3><span class="duracion">45 min</span></div>
+          <p>Tijera o máquina, con terminación a navaja y lavado.</p>
+          <a class="enlace" href="#reservar" data-servicio="Corte clásico">Reservar</a>
+        </li>
+        <li>
+          <div class="servicio-nombre"><h3>Barba y perfilado</h3><span class="duracion">30 min</span></div>
+          <p>Toalla caliente, navaja y aceite. Forma pensada para tu cara.</p>
+          <a class="enlace" href="#reservar" data-servicio="Barba y perfilado">Reservar</a>
+        </li>
+        <li>
+          <div class="servicio-nombre"><h3>Corte y barba</h3><span class="duracion">75 min</span></div>
+          <p>El servicio completo, con el mismo barbero de principio a fin.</p>
+          <a class="enlace" href="#reservar" data-servicio="Corte y barba">Reservar</a>
+        </li>
+        <li>
+          <div class="servicio-nombre"><h3>Afeitado tradicional</h3><span class="duracion">30 min</span></div>
+          <p>Espuma caliente, navaja y bálsamo. Sin apuro.</p>
+          <a class="enlace" href="#reservar" data-servicio="Afeitado tradicional">Reservar</a>
+        </li>
+      </ul>
+    </section>
 
-        <fieldset>
-          <legend><span class="num">02</span> ¿Qué servicio querés?</legend>
-          <div class="opciones servicios">
-            <label class="opcion">
-              <input type="radio" name="servicio" value="Corte con asesoramiento">
-              <span><em class="badge">Si tenés dudas</em><strong>Corte con asesoramiento</strong><small>Lo decidimos juntos</small></span>
-            </label>
-            <label class="opcion">
-              <input type="radio" name="servicio" value="Corte clásico">
-              <span><strong>Corte clásico</strong><small>Tijera o máquina</small></span>
-            </label>
-            <label class="opcion">
-              <input type="radio" name="servicio" value="Barba y perfilado">
-              <span><strong>Barba y perfilado</strong><small>Navaja y toalla caliente</small></span>
-            </label>
-            <label class="opcion">
-              <input type="radio" name="servicio" value="Corte + Barba">
-              <span><strong>Corte + Barba</strong><small>El combo completo</small></span>
-            </label>
+    <!-- Cómo trabajamos -->
+    <section class="bloque-negro" id="metodo">
+      <div class="contenedor metodo">
+        <div class="metodo-texto">
+          <h2>Primero escuchamos. Después cortamos.</h2>
+          <div class="pasos">
+            <div>
+              <h3>Charla</h3>
+              <p>Nos contás qué buscás. Si traés una foto de referencia, mejor.</p>
+            </div>
+            <div>
+              <h3>Lectura</h3>
+              <p>Miramos forma de cara, remolinos, textura y cuánto tiempo tenés a la mañana.</p>
+            </div>
+            <div>
+              <h3>Corte y rutina</h3>
+              <p>Cortamos y te mostramos cómo peinarlo en pocos pasos, con lo que tengas en casa.</p>
+            </div>
           </div>
-          <p class="ayuda">¿Todavía no sabés qué corte elegir? Seleccioná «Corte con asesoramiento» al reservar y lo decidimos juntos cuando vengás.</p>
-        </fieldset>
+        </div>
+        <figure class="metodo-foto">
+          <img src="img/trabajo-consulta.webp" alt="El barbero conversa con un cliente sentado en el sillón antes de empezar el corte" width="1200" height="2132" loading="lazy">
+        </figure>
+      </div>
+    </section>
 
-        <fieldset>
-          <legend><span class="num">03</span> ¿Qué día te queda bien?</legend>
-          <!-- Los próximos días abiertos se generan en script.js -->
-          <div class="opciones dias" id="dias"></div>
-          <div class="opciones franjas">
-            <label class="opcion">
-              <input type="radio" name="franja" value="a la mañana">
-              <span><strong>Mañana</strong><small>10:00 – 14:00</small></span>
-            </label>
-            <label class="opcion">
-              <input type="radio" name="franja" value="a la tarde">
-              <span><strong>Tarde</strong><small>14:00 – 20:00</small></span>
-            </label>
+    <!-- Trabajos -->
+    <section class="seccion contenedor" id="trabajos">
+      <div class="seccion-cabeza">
+        <h2>Trabajos</h2>
+        <p>Cada corte se adapta a quien lo lleva.</p>
+      </div>
+      <div class="galeria">
+        <figure class="g-alta"><img src="img/resultado-movil.webp" alt="Cliente con corte clásico peinado hacia atrás, junto a su barbero" width="1290" height="2292" loading="lazy"></figure>
+        <figure class="g-ancha"><img src="img/trabajo-peinado.webp" alt="El barbero peina y ajusta un corte con rulos" width="2000" height="1126" loading="lazy"></figure>
+        <figure class="g-ancha"><img src="img/resultado.webp" alt="Cliente sonriente con su corte nuevo en el salón" width="1672" height="941" loading="lazy"></figure>
+      </div>
+    </section>
+
+    <!-- Reserva -->
+    <section class="seccion-gris" id="reservar">
+      <div class="contenedor">
+        <div class="seccion-cabeza">
+          <h2>Reservá tu turno</h2>
+          <p>Tres pasos y menos de un minuto. Te confirmamos por WhatsApp.</p>
+        </div>
+
+        <div class="reserva">
+          <form class="reserva-panel" id="reserva" novalidate>
+            <div class="progreso" aria-hidden="true"><span id="barra"></span></div>
+            <p class="paso-actual" id="paso-texto">Paso 1 de 3</p>
+
+            <!-- Paso 1 -->
+            <fieldset class="paso" data-paso="1">
+              <legend>¿Qué te hacés?</legend>
+              <div class="lista-opciones" id="opciones-servicio"></div>
+              <p class="error" data-error="servicio" hidden>Elegí un servicio para seguir. Si dudás, el corte con asesoramiento es para eso.</p>
+            </fieldset>
+
+            <!-- Paso 2 -->
+            <fieldset class="paso" data-paso="2" hidden>
+              <legend>¿Cuándo venís?</legend>
+              <p class="etiqueta">Día</p>
+              <div class="dias" id="dias"></div>
+              <p class="etiqueta">Hora</p>
+              <div class="horas" id="horas"></div>
+              <p class="error" data-error="cuando" hidden>Elegí un día y una hora disponibles.</p>
+            </fieldset>
+
+            <!-- Paso 3 -->
+            <fieldset class="paso" data-paso="3" hidden>
+              <legend>Tus datos</legend>
+              <label class="campo">Nombre
+                <input type="text" name="nombre" autocomplete="given-name" placeholder="Cómo te llamamos">
+                <span class="error" data-error="nombre" hidden>Escribí tu nombre.</span>
+              </label>
+              <label class="campo">WhatsApp
+                <input type="tel" name="telefono" inputmode="tel" autocomplete="tel" placeholder="11 2345 6789">
+                <span class="error" data-error="telefono" hidden>Revisá el número: necesitamos al menos 8 dígitos.</span>
+              </label>
+              <label class="campo">Algo que debamos saber <span class="opcional">(opcional)</span>
+                <textarea name="nota" rows="3" placeholder="Por ejemplo: traigo una foto de referencia"></textarea>
+              </label>
+            </fieldset>
+
+            <div class="navegacion">
+              <button type="button" class="btn btn-borde" id="atras" hidden><svg class="ico"><use href="#i-volver"/></svg> Atrás</button>
+              <button type="button" class="btn btn-oscuro" id="siguiente">Continuar</button>
+            </div>
+          </form>
+
+          <!-- Confirmación -->
+          <div class="reserva-panel confirmacion" id="confirmacion" hidden tabindex="-1">
+            <span class="sello"><svg class="ico"><use href="#i-check"/></svg></span>
+            <h3>Turno reservado</h3>
+            <p id="confirmacion-texto"></p>
+            <div class="acciones">
+              <button type="button" class="btn btn-oscuro" id="calendario">Agregar al calendario</button>
+              <button type="button" class="btn btn-borde" id="otra">Hacer otra reserva</button>
+            </div>
           </div>
-        </fieldset>
 
-        <button type="submit" class="btn btn-negro btn-bloque">Confirmar mi cita</button>
-        <p id="mensaje" role="status" aria-live="polite"></p>
-      </form>
-    </div>
-  </section>
+          <aside class="resumen" aria-live="polite">
+            <h3>Tu turno</h3>
+            <dl>
+              <div><dt>Servicio</dt><dd id="r-servicio">Sin elegir</dd></div>
+              <div><dt>Duración</dt><dd id="r-duracion">—</dd></div>
+              <div><dt>Día</dt><dd id="r-dia">Sin elegir</dd></div>
+              <div><dt>Hora</dt><dd id="r-hora">Sin elegir</dd></div>
+            </dl>
+            <p class="nota">Podés cancelar o cambiar el turno hasta 2 horas antes, respondiendo el mensaje de confirmación.</p>
+          </aside>
+        </div>
+      </div>
+    </section>
 
-  <section id="contacto" class="seccion gris">
-    <span class="eyebrow">Contacto</span>
-    <h2>Pasate por acá</h2>
-    <div class="datos">
-      <div><span class="paso">Dirección</span><p>Calle Principal 123</p></div>
-      <div><span class="paso">Teléfono</span><p>11 2345 6789</p></div>
-      <div><span class="paso">Horario</span><p>Lunes a sábado · 10:00 – 20:00</p></div>
-    </div>
-  </section>
+    <!-- Preguntas -->
+    <section class="seccion contenedor angosto" id="preguntas">
+      <div class="seccion-cabeza">
+        <h2>Preguntas frecuentes</h2>
+      </div>
+      <div class="preguntas">
+        <details>
+          <summary>¿Atienden sin turno?</summary>
+          <p>Sí, si hay un sillón libre. Con turno te asegurás el horario y el barbero que prefieras.</p>
+        </details>
+        <details>
+          <summary>No sé qué corte hacerme. ¿Qué reservo?</summary>
+          <p>El corte con asesoramiento. Dura un poco más porque antes de empezar lo definimos juntos.</p>
+        </details>
+        <details>
+          <summary>¿Puedo cambiar o cancelar mi turno?</summary>
+          <p>Sí, hasta 2 horas antes. Respondé el mensaje de confirmación que te mandamos por WhatsApp.</p>
+        </details>
+        <details>
+          <summary>¿Cómo se paga?</summary>
+          <p>En el local, con efectivo, débito, crédito o transferencia.</p>
+        </details>
+      </div>
+    </section>
 
-  <footer>
-    <img src="img/logo-blanco.png" alt="Legado Barber Club" width="84" height="56">
-    <p>© 2026 Legado Barber Club · Escuchamos antes de cortar<br><small>Sitio web con fines educativos</small></p>
+    <!-- Ubicación -->
+    <section class="bloque-negro" id="ubicacion">
+      <div class="contenedor ubicacion">
+        <div>
+          <h2>Pasá cuando quieras.</h2>
+          <p class="direccion">Calle Principal 123</p>
+          <p class="estado-grande" data-estado-largo>—</p>
+          <div class="acciones">
+            <a class="btn btn-claro" href="#reservar">Reservar turno</a>
+            <a class="btn btn-borde-claro" href="tel:+541123456789">Llamar</a>
+          </div>
+        </div>
+        <table class="horario">
+          <caption>Horario</caption>
+          <tbody>
+            <tr data-dia="1"><th scope="row">Lunes</th><td>10:00 – 20:00</td></tr>
+            <tr data-dia="2"><th scope="row">Martes</th><td>10:00 – 20:00</td></tr>
+            <tr data-dia="3"><th scope="row">Miércoles</th><td>10:00 – 20:00</td></tr>
+            <tr data-dia="4"><th scope="row">Jueves</th><td>10:00 – 20:00</td></tr>
+            <tr data-dia="5"><th scope="row">Viernes</th><td>10:00 – 20:00</td></tr>
+            <tr data-dia="6"><th scope="row">Sábado</th><td>10:00 – 20:00</td></tr>
+            <tr data-dia="0"><th scope="row">Domingo</th><td>Cerrado</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie contenedor">
+    <img src="img/logo-negro.png" alt="Legado Barber Club" width="90" height="60" class="pie-logo">
+    <p>© 2026 Legado Barber Club. Sitio con fines educativos.</p>
   </footer>
 
-  <script src="script.js?v=20261022g"></script>
+  <!-- Barra inferior tipo app (solo celular) -->
+  <nav class="tabbar" aria-label="Accesos rápidos">
+    <a href="#inicio" data-tab="inicio"><svg class="ico"><use href="#i-inicio"/></svg>Inicio</a>
+    <a href="#servicios" data-tab="servicios"><svg class="ico"><use href="#i-tijera"/></svg>Servicios</a>
+    <a href="#reservar" data-tab="reservar"><svg class="ico"><use href="#i-calendario"/></svg>Reservar</a>
+    <a href="#ubicacion" data-tab="ubicacion"><svg class="ico"><use href="#i-ubicacion"/></svg>Ubicación</a>
+  </nav>
+
+  <script src="script.js?v=web1"></script>
 </body>
 </html>
