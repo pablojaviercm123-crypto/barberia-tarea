@@ -238,12 +238,52 @@ legend + .etiqueta { margin-top: 0; }
 .resumen dd.vacio { font-weight: 400; color: var(--gris-500); }
 .resumen .nota { margin-top: 1rem; font-size: .875rem; color: var(--gris-500); }
 
-.confirmacion { text-align: left; }
+.confirmacion { text-align: left; position: relative; overflow: hidden; }
+.reserva.confirmada { grid-template-columns: minmax(0, 720px); justify-content: center; }
+.reserva.confirmada .resumen { display: none; }
 .confirmacion:focus { outline: none; }
 .sello { display: grid; place-items: center; width: 56px; height: 56px; border-radius: 50%; background: var(--negro); color: var(--blanco); }
 .sello .ico { width: 28px; height: 28px; stroke-width: 2.25; }
 .confirmacion h3 { margin-top: 1.25rem; font-size: 1.875rem; letter-spacing: -.02em; }
-.confirmacion p { margin-top: .75rem; max-width: 46ch; color: var(--gris-700); }
+.confirmacion > p { margin-top: .75rem; max-width: 46ch; color: var(--gris-700); }
+
+/* Ticket del turno */
+.ticket { margin-top: 1.75rem; border-radius: var(--r-md); background: var(--negro); color: var(--blanco); }
+.ticket-cabeza { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 1.1rem 1.4rem 0; }
+.ticket-cabeza img { height: 40px; width: auto; }
+.ticket-cabeza span { font-size: .875rem; font-weight: 500; color: var(--gris-oscuro-texto); }
+.ticket-cuerpo { display: grid; grid-template-columns: auto 1fr; gap: 1.5rem 2rem; align-items: center; padding: 1.4rem 1.4rem 1.6rem; }
+.ticket-dia { display: grid; justify-items: start; line-height: 1; }
+.ticket-dia span { font-size: .9375rem; font-weight: 500; color: var(--gris-oscuro-texto); text-transform: capitalize; }
+.ticket-dia strong { font-size: clamp(3.5rem, 9vw, 4.5rem); font-weight: 700; letter-spacing: -.04em; margin: .2rem 0 .3rem; font-variant-numeric: tabular-nums; }
+.ticket-datos { display: grid; gap: .8rem; }
+.ticket-datos dt { font-size: .8125rem; color: var(--gris-oscuro-texto); }
+.ticket-datos dd { font-size: 1.0625rem; font-weight: 600; }
+/* Línea troquelada con muescas a los lados */
+.ticket-corte { position: relative; margin: 0 1.4rem; border-top: 2px dashed rgba(255, 255, 255, .22); }
+.ticket-corte::before, .ticket-corte::after { content: ''; position: absolute; top: -13px; width: 24px; height: 24px; border-radius: 50%; background: var(--blanco); }
+.ticket-corte::before { left: calc(-1.4rem - 12px); }
+.ticket-corte::after { right: calc(-1.4rem - 12px); }
+.ticket-pie { margin: 0; padding: 1rem 1.4rem 1.2rem; font-size: .875rem; color: var(--gris-oscuro-texto); }
+
+/* Festejo: sello que rebota, tilde que se dibuja, ticket que sube y confeti */
+.festejo .sello { animation: sello .55s cubic-bezier(.2, 1.5, .4, 1) both; }
+.festejo .sello .ico { stroke-dasharray: 24; stroke-dashoffset: 24; animation: trazo .4s .35s ease-out forwards; }
+.festejo h3, .festejo > p { animation: subir .45s .2s ease-out both; }
+.festejo .ticket { animation: subir .6s .35s cubic-bezier(.2, .7, .2, 1) both; }
+@keyframes sello { from { transform: scale(0); } }
+@keyframes trazo { to { stroke-dashoffset: 0; } }
+@keyframes subir { from { opacity: 0; transform: translateY(18px); } }
+.confeti { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.confeti i {
+  position: absolute; top: -20px; display: block; border-radius: 2px;
+  animation: caer var(--t) var(--d) cubic-bezier(.25, .6, .4, 1) forwards;
+}
+@keyframes caer {
+  from { transform: translate(0, 0) rotate(0); opacity: 1; }
+  80% { opacity: 1; }
+  to { transform: translate(var(--x), var(--y)) rotate(var(--r)); opacity: 0; }
+}
 
 /* ---------- Preguntas ---------- */
 .preguntas { border-top: 1px solid var(--gris-200); }
@@ -316,6 +356,9 @@ legend + .etiqueta { margin-top: 0; }
   .dias { grid-template-columns: repeat(3, 1fr); }
   .horas { grid-template-columns: repeat(3, 1fr); }
   .navegacion .btn { flex: 1; }
+  .ticket-cuerpo { grid-template-columns: 1fr; gap: 1rem; }
+  .ticket-dia { grid-auto-flow: column; justify-content: start; align-items: baseline; gap: .6rem; }
+  .ticket-dia strong { margin: 0; font-size: 3.25rem; }
   .ubicacion { grid-template-columns: 1fr; }
   .pie { padding-bottom: 1.5rem; }
 

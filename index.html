@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
-  <link rel="stylesheet" href="styles.css?v=web6">
+  <link rel="stylesheet" href="styles.css?v=web8">
 </head>
 <body>
   <!-- Íconos (un solo set, trazo 1.75) -->
@@ -240,8 +240,25 @@
           <!-- Confirmación -->
           <div class="reserva-panel confirmacion" id="confirmacion" hidden tabindex="-1">
             <span class="sello"><svg class="ico"><use href="#i-check"/></svg></span>
-            <h3>Turno reservado</h3>
+            <h3>¡Turno reservado!</h3>
             <p id="confirmacion-texto"></p>
+            <!-- Ticket del turno -->
+            <div class="ticket">
+              <div class="ticket-cabeza">
+                <img src="img/logo-blanco.png" alt="Legado Barber Club" width="72" height="48">
+                <span>Turno confirmado</span>
+              </div>
+              <div class="ticket-cuerpo">
+                <p class="ticket-dia"><span id="t-semana"></span><strong id="t-num"></strong><span id="t-mes"></span></p>
+                <dl class="ticket-datos">
+                  <div><dt>Hora</dt><dd id="t-hora"></dd></div>
+                  <div><dt>Servicio</dt><dd id="t-servicio"></dd></div>
+                  <div><dt>A nombre de</dt><dd id="t-nombre"></dd></div>
+                </dl>
+              </div>
+              <div class="ticket-corte" aria-hidden="true"></div>
+              <p class="ticket-pie">Calle Principal 123 · Llegá 5 minutos antes</p>
+            </div>
             <div class="acciones">
               <button type="button" class="btn btn-oscuro" id="calendario">Agregar al calendario</button>
               <button type="button" class="btn btn-borde" id="otra">Hacer otra reserva</button>
@@ -328,6 +345,6 @@
     <a href="#ubicacion" data-tab="ubicacion"><svg class="ico"><use href="#i-ubicacion"/></svg>Ubicación</a>
   </nav>
 
-  <script src="script.js?v=web6"></script>
+  <script src="script.js?v=web8"></script>
 </body>
 </html>

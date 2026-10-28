@@ -72,7 +72,7 @@ pintarEstado();
 setInterval(pintarEstado, 60000);
 
 /* ---------- Barra inferior: marca la sección visible ---------- */
-const pestanaDe = { inicio: 'inicio', historia: 'inicio', cambio: 'inicio', servicios: 'servicios', trabajos: 'servicios', reservar: 'reservar', preguntas: 'ubicacion', ubicacion: 'ubicacion' };
+const pestanaDe = { inicio: 'inicio', historia: 'inicio', cambio: 'inicio', servicios: 'servicios', trabajos: 'servicios', reservar: 'reservar', preguntas: 'reservar', ubicacion: 'ubicacion' };
 if ('IntersectionObserver' in window) {
   const obs = new IntersectionObserver(entradas => entradas.forEach(en => {
     if (!en.isIntersecting) return;
@@ -220,7 +220,7 @@ $$('[data-servicio]').forEach(a => a.addEventListener('click', () => {
   const radio = $(`[name=servicio][value="${a.dataset.servicio}"]`);
   radio.checked = true;
   radio.dispatchEvent(new Event('change', { bubbles: true }));
-  $('#confirmacion').hidden = true; form.hidden = false;
+  $('#confirmacion').hidden = true; $('.reserva').classList.remove('confirmada'); form.hidden = false;
   irAPaso(2);
 }));
 
@@ -231,14 +231,49 @@ function confirmar() {
   $('#confirmacion-texto').textContent =
     `${turno.nombre}, te esperamos el ${fechaLarga(turno.fecha)} a las ${turno.hora} para ${turno.servicio.nombre.toLowerCase()}. ` +
     `Te escribimos al ${turno.telefono} para confirmarlo.`;
+  // Ticket
+  const d = new Date(turno.fecha + 'T12:00');
+  $('#t-semana').textContent = d.toLocaleDateString('es', { weekday: 'long' });
+  $('#t-num').textContent = d.getDate();
+  $('#t-mes').textContent = d.toLocaleDateString('es', { month: 'long' });
+  $('#t-hora').textContent = `${turno.hora} a ${finTurno(turno.hora)}`;
+  $('#t-servicio').textContent = turno.servicio.nombre;
+  $('#t-nombre').textContent = turno.nombre;
+
   form.hidden = true;
+  $('.reserva').classList.add('confirmada');
   const conf = $('#confirmacion');
-  conf.hidden = false; conf.focus();
+  conf.hidden = false;
+  conf.scrollIntoView({ block: 'start' });
+  conf.focus({ preventScroll: true });
+  festejar(conf);
+}
+
+// Festejo al confirmar: animación del sello, confeti en blanco y negro y una vibración corta
+function festejar(conf) {
+  conf.classList.remove('festejo'); void conf.offsetWidth; conf.classList.add('festejo');
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (navigator.vibrate) navigator.vibrate([30, 40, 30]);
+  const capa = document.createElement('div');
+  capa.className = 'confeti'; capa.setAttribute('aria-hidden', 'true');
+  const colores = ['#0b0b0b', '#3a3a39', '#6b6b69', '#a3a3a1', '#d4d4d2'];
+  const alto = conf.offsetHeight;
+  for (let i = 0; i < 80; i++) {
+    const p = document.createElement('i');
+    const ancho = 5 + Math.random() * 6;
+    p.style.cssText = `left:${Math.random() * 100}%;width:${ancho}px;height:${Math.random() < .3 ? ancho : ancho * 2}px;` +
+      `background:${colores[i % colores.length]};${Math.random() < .3 ? 'border-radius:50%;' : ''}` +
+      `--x:${(Math.random() - .5) * 160}px;--y:${alto * (.7 + Math.random() * .4)}px;--r:${(Math.random() < .5 ? -1 : 1) * (360 + Math.random() * 720)}deg;` +
+      `--t:${1.6 + Math.random() * 1.2}s;--d:${Math.random() * .5}s`;
+    capa.append(p);
+  }
+  conf.append(capa);
+  setTimeout(() => capa.remove(), 3600);
 }
 $('#otra').addEventListener('click', () => {
   form.reset(); Object.assign(estado, { servicio: null, fecha: null, hora: null });
   pintarHoras(); pintarResumen(); pintarAviso(); $$('.error', form).forEach(e => { e.hidden = true; });
-  $('#confirmacion').hidden = true; form.hidden = false; irAPaso(1);
+  $('#confirmacion').hidden = true; $('.reserva').classList.remove('confirmada'); form.hidden = false; irAPaso(1);
   $('[name=servicio]').focus();
 });
 
