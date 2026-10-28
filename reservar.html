@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Encontrá tu corte · Legado Barber Club</title>
+  <meta name="description" content="Reservá tu turno en Legado Barber Club en tres pasos.">
+  <meta name="theme-color" content="#0b0b0b">
+  <link rel="icon" href="img/logo.jpg">
+  <link rel="apple-touch-icon" href="img/logo.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="styles.css?v=web10">
+</head>
+<body class="cuerpo-reserva">
+  <!-- Íconos (un solo set, trazo 1.75) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-inicio" viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></symbol>
+    <symbol id="i-tijera" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.6 7.6 20 19M8.6 16.4 20 5"/></symbol>
+    <symbol id="i-calendario" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
+    <symbol id="i-ubicacion" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+    <symbol id="i-flecha" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-volver" viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-pregunta" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.3a2.6 2.6 0 0 1 5 .9c0 1.7-2.5 2.3-2.5 3.8M12 17.2v.1"/></symbol>
+  </svg>
+
+  <!-- Cabecera de la página de reserva: solo volver y la marca, sin distracciones -->
+  <header class="cabecera">
+    <div class="cabecera-fila">
+      <a class="volver" href="index.html"><svg class="ico"><use href="#i-volver"/></svg> Volver</a>
+      <a href="index.html" class="logo logo-centro" aria-label="Legado Barber Club, ir al inicio">
+        <img src="img/logo-blanco.png" alt="" width="72" height="48">
+      </a>
+      <span class="estado" data-estado>Horario</span>
+    </div>
+  </header>
+
+  <main>
+    <!-- Reserva -->
+    <section class="pagina-reserva" id="reservar">
+      <div class="contenedor">
+        <div class="seccion-cabeza">
+          <h1>Encontrá tu corte</h1>
+          <p>Reservá tu turno en tres pasos. Te confirmamos por WhatsApp.</p>
+        </div>
+
+        <div class="reserva">
+          <form class="reserva-panel" id="reserva" novalidate>
+            <div class="progreso" aria-hidden="true"><span id="barra"></span></div>
+            <p class="paso-actual" id="paso-texto">Paso 1 de 3</p>
+
+            <!-- Paso 1 -->
+            <fieldset class="paso" data-paso="1">
+              <legend>¿Qué servicio querés?</legend>
+              <!-- UX writing: aviso que orienta antes de elegir -->
+              <div class="aviso" id="ayuda-servicio" role="note">
+                <span class="aviso-icono"><svg class="ico"><use href="#i-pregunta"/></svg></span>
+                <div class="aviso-texto">
+                  <p class="aviso-titulo">¿Todavía no sabés qué corte elegir?</p>
+                  <p>Seleccioná «Corte con asesoramiento» al reservar y lo decidimos juntos cuando vengás.</p>
+                  <button type="button" class="btn btn-claro btn-chico" id="elegir-asesoramiento">Elegir asesoramiento</button>
+                </div>
+              </div>
+              <div class="aviso aviso-listo" id="ayuda-lista" role="status" hidden>
+                <span class="aviso-icono"><svg class="ico"><use href="#i-check"/></svg></span>
+                <div class="aviso-texto">
+                  <p class="aviso-titulo">Listo, lo decidimos juntos.</p>
+                  <p>Cuando vengás, charlamos antes de cortar y elegimos el corte que mejor te queda.</p>
+                </div>
+              </div>
+              <div class="lista-opciones" id="opciones-servicio"></div>
+              <p class="error" data-error="servicio" hidden>Elegí un servicio para seguir. Si tenés dudas, seleccioná «Corte con asesoramiento».</p>
+            </fieldset>
+
+            <!-- Paso 2 -->
+            <fieldset class="paso" data-paso="2" hidden>
+              <legend>¿Cuándo venís?</legend>
+              <p class="etiqueta">Día</p>
+              <div class="dias" id="dias"></div>
+              <p class="etiqueta">Hora</p>
+              <div class="horas" id="horas"></div>
+              <p class="error" data-error="cuando" hidden>Elegí un día y una hora disponibles.</p>
+            </fieldset>
+
+            <!-- Paso 3 -->
+            <fieldset class="paso" data-paso="3" hidden>
+              <legend>Tus datos</legend>
+              <label class="campo">Nombre
+                <input type="text" name="nombre" autocomplete="given-name" placeholder="Cómo te llamamos">
+                <span class="error" data-error="nombre" hidden>Escribí tu nombre.</span>
+              </label>
+              <label class="campo">WhatsApp
+                <input type="tel" name="telefono" inputmode="tel" autocomplete="tel" placeholder="11 2345 6789">
+                <span class="error" data-error="telefono" hidden>Revisá el número: necesitamos al menos 8 dígitos.</span>
+              </label>
+              <label class="campo">Algo que debamos saber <span class="opcional">(opcional)</span>
+                <textarea name="nota" rows="3" placeholder="Por ejemplo: traigo una foto de referencia"></textarea>
+              </label>
+            </fieldset>
+
+            <div class="navegacion">
+              <button type="button" class="btn btn-borde" id="atras" hidden><svg class="ico"><use href="#i-volver"/></svg> Atrás</button>
+              <button type="button" class="btn btn-oscuro" id="siguiente">Continuar</button>
+            </div>
+          </form>
+
+          <!-- Confirmación -->
+          <div class="reserva-panel confirmacion" id="confirmacion" hidden tabindex="-1">
+            <span class="sello"><svg class="ico"><use href="#i-check"/></svg></span>
+            <h3>¡Turno reservado!</h3>
+            <p id="confirmacion-texto"></p>
+            <!-- Ticket del turno -->
+            <div class="ticket">
+              <div class="ticket-cabeza">
+                <img src="img/logo-blanco.png" alt="Legado Barber Club" width="72" height="48">
+                <span>Turno confirmado</span>
+              </div>
+              <div class="ticket-cuerpo">
+                <p class="ticket-dia"><span id="t-semana"></span><strong id="t-num"></strong><span id="t-mes"></span></p>
+                <dl class="ticket-datos">
+                  <div><dt>Hora</dt><dd id="t-hora"></dd></div>
+                  <div><dt>Servicio</dt><dd id="t-servicio"></dd></div>
+                  <div><dt>A nombre de</dt><dd id="t-nombre"></dd></div>
+                </dl>
+              </div>
+              <div class="ticket-corte" aria-hidden="true"></div>
+              <p class="ticket-pie">Calle Principal 123 · Llegá 5 minutos antes</p>
+            </div>
+            <div class="acciones">
+              <button type="button" class="btn btn-oscuro" id="calendario">Agregar al calendario</button>
+              <button type="button" class="btn btn-borde" id="otra">Hacer otra reserva</button>
+              <a class="enlace" href="index.html">Volver al inicio</a>
+            </div>
+          </div>
+
+          <aside class="resumen" aria-live="polite">
+            <h3>Tu turno</h3>
+            <dl>
+              <div><dt>Servicio</dt><dd id="r-servicio">Sin elegir</dd></div>
+              <div><dt>Duración</dt><dd id="r-duracion">—</dd></div>
+              <div><dt>Día</dt><dd id="r-dia">Sin elegir</dd></div>
+              <div><dt>Hora</dt><dd id="r-hora">Sin elegir</dd></div>
+            </dl>
+            <p class="nota">Podés cancelar o cambiar el turno hasta 2 horas antes, respondiendo el mensaje de confirmación.</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="pie contenedor">
+    <img src="img/logo-negro.png" alt="Legado Barber Club" width="90" height="60" class="pie-logo">
+    <p>© 2026 Legado Barber Club. Sitio con fines educativos.</p>
+  </footer>
+
+  <script src="script.js?v=web10"></script>
+  <script src="reserva.js?v=web10"></script>
+</body>
+</html>

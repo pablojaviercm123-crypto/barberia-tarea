@@ -38,4 +38,4 @@ Un único momento: la pantalla de ingreso (aparición del logo y salida hacia ar
 ## Usabilidad
 - Zonas táctiles de 44 px o más; campos de 16 px o más (sin zoom en iPhone).
 - En el celular, barra inferior tipo app con 4 destinos: Inicio, Servicios, Reservar, Ubicación.
-- Reserva en 3 pasos con resumen siempre visible, errores junto al campo y confirmación con opción de agregar al calendario.
+- Reserva en página propia (`reservar.html`), en 3 pasos, con franjas de una hora (14:00 – 15:00…) y resumen siempre visible, errores junto al campo y confirmación con opción de agregar al calendario.

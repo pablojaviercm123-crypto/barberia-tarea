@@ -196,7 +196,7 @@ legend + .etiqueta { margin-top: 0; }
 .dias .opcion > span { flex-direction: column; justify-content: center; gap: 0; padding: .6rem .3rem; text-align: center; min-height: 72px; }
 .dias strong { font-size: 1.25rem; font-variant-numeric: tabular-nums; }
 .dias small { text-transform: capitalize; }
-.horas { display: grid; grid-template-columns: repeat(5, 1fr); gap: .5rem; }
+.horas { display: grid; grid-template-columns: repeat(3, 1fr); gap: .5rem; }
 .horas .opcion > span { justify-content: center; flex-direction: column; gap: 0; padding: .5rem; min-height: 52px; font-variant-numeric: tabular-nums; font-weight: 600; }
 .horas small { font-weight: 500; font-size: .75rem; }
 
@@ -285,6 +285,19 @@ legend + .etiqueta { margin-top: 0; }
   to { transform: translate(var(--x), var(--y)) rotate(var(--r)); opacity: 0; }
 }
 
+/* ---------- Página de reserva ---------- */
+.cuerpo-reserva { --tabbar: 0px; background: var(--gris-50); }
+.cuerpo-reserva .cabecera-fila { display: grid; grid-template-columns: 1fr auto 1fr; }
+.volver {
+  display: inline-flex; align-items: center; gap: .4rem; min-height: 44px; justify-self: start;
+  color: var(--gris-oscuro-texto); text-decoration: none; font-size: .9375rem; font-weight: 500; transition: color .15s;
+}
+.volver:hover { color: var(--blanco); }
+.cuerpo-reserva .estado { justify-self: end; margin-left: 0; }
+.pagina-reserva { padding-block: clamp(2.5rem, 7vw, 5rem) clamp(4rem, 9vw, 6rem); min-height: calc(100svh - var(--cabecera) - 120px); }
+.pagina-reserva h1 { font-size: clamp(2.25rem, 5vw, 3.5rem); letter-spacing: -.03em; line-height: 1.02; }
+.cuerpo-reserva .pie { max-width: 1200px; }
+
 /* ---------- Preguntas ---------- */
 .preguntas { border-top: 1px solid var(--gris-200); }
 .preguntas details { border-bottom: 1px solid var(--gris-200); }
@@ -354,7 +367,7 @@ legend + .etiqueta { margin-top: 0; }
   .g-ancha { grid-column: span 1; }
   .galeria figure:last-child { grid-column: span 2; }
   .dias { grid-template-columns: repeat(3, 1fr); }
-  .horas { grid-template-columns: repeat(3, 1fr); }
+  .horas { grid-template-columns: repeat(2, 1fr); }
   .navegacion .btn { flex: 1; }
   .ticket-cuerpo { grid-template-columns: 1fr; gap: 1rem; }
   .ticket-dia { grid-auto-flow: column; justify-content: start; align-items: baseline; gap: .6rem; }
